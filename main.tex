@@ -1,0 +1,869 @@
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+%\documentclass[11pt]{article}
+\documentclass[12pt]{article}
+
+% A note on fonts: As of 2013, NIH allows Georgia, Arial, Helvetica, and Palatino Linotype. LaTeX doesn't have Georgia or Arial built in; you can try to come up with your own solution if you wish to use those fonts. Here, Palatino & Helvetica are available, leave the font you want to use uncommented while commenting out the other one.
+%\usepackage{palatino} % Palatino font
+%\usepackage{helvet} % Helvetica font
+%\usepackage{uarial}
+%\pagestyle{empty}
+%\renewcommand{\rmdefault}{phv} % Arial
+%\renewcommand{\sfdefault}{phv} % Arial
+%
+%
+%%\usepackage[scaled]{uarial}
+%%\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+%%\usepackage[T1]{fontenc}
+%
+%\renewcommand*\familydefault{\sfdefault} % Use the sans serif version of the font
+%\usepackage[T1]{fontenc}
+%%\linespread{1.05} % A little extra line spread is better for the Palatino font
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+
+\usepackage{setspace}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+\usepackage{graphicx} % Required for including images
+\usepackage{booktabs} % Top and bottom rules for table
+\usepackage{wrapfig} % Allows in-line images
+\usepackage{url}
+\usepackage[labelfont=bf]{caption} % Make figure numbering in captions bold
+%\usepackage[top=14mm,bottom=16mm,left=14mm,right=14mm]{geometry} % Reduce the size of the margin
+\usepackage[top=16.5mm,bottom=16.5mm,left=16.5mm,right=16.5mm]{geometry}
+%\usepackage[top=17mm,bottom=16mm,left=22mm,right=22mm]{geometry} % Reduce the size of the margin
+%\pagestyle{empty} % Remove page numbers
+
+%\linespread{0.9}
+
+
+% Macros for proof-reading
+\usepackage[normalem]{ulem} % for \sout
+\usepackage{xcolor}
+\newcommand{\ra}{$\rightarrow$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% some commands for commenting
+% Put edit comments in a really ugly standout display
+\usepackage{ifthen}
+
+\newboolean{showcomments}
+\setboolean{showcomments}{true} % toggle to show or hide comments
+\ifthenelse{\boolean{showcomments}}
+  {
+    \newcommand{\ugh}[1]{\textcolor{red}{\uwave{#1}}} % please rephrase
+    \newcommand{\ins}[1]{\textcolor{blue}{\uline{#1}}} % please insert
+    \newcommand{\del}[1]{\textcolor{red}{\sout{#1}}} % please delete
+    \newcommand{\chg}[2]{\textcolor{red}{\sout{#1}}{\ra}\textcolor{blue}{\uline{#2}}} % please change
+%    \newcommand{\todoopen}[1]{\textcolor{red}{open! responsible:{#1}}}% open comment to reviewer
+ %   \newcommand{\fixed}[1]{\textcolor{blue}{fixed! responsible:{#1}}}% finished response to reviewer
+    \newcommand{\todoopen}[1]{}% open comment to reviewer
+    \newcommand{\fixed}[1]{}% finished response to reviewer
+
+    \newcommand{\nb}[2]{
+    \fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}
+    {\sf\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}
+   }
+   \newcommand{\version}{\emph{\scriptsize$-$working$-$}}
+  }
+  {
+   	\newcommand{\ugh}[1]{#1} % please rephrase
+	\newcommand{\ins}[1]{#1} % please insert
+	\newcommand{\del}[1]{} % please delete
+	\newcommand{\chg}[2]{#2} % please change
+	\newcommand{\todoopen}[1]{}
+	\newcommand\fixed[1]{}
+    \newcommand{\nb}[2]{}
+   \newcommand{\version}{}
+  }
+
+\newcommand\patrizio[1]{\nb{Patrizio}{#1}}
+\newcommand\ivica[1]{\nb{Ivica}{#1}}
+\newcommand\jan[1]{\nb{Jan}{#1}}
+\newcommand\christos[1]{\nb{Christos}{#1}}
+
+\usepackage{fancyhdr}
+
+%\pagenumbering{arabic}
+%\pagestyle{empty}
+%\fancyhf{}
+ 
+%\pagestyle{headings}
+\setcounter{page}{1}
+\pagenumbering{arabic} 
+
+%\rfoot{Page \thepage}
+
+\hyphenation{ionto-pho-re-tic iso-tro-pic fortran} % Specifies custom hyphenation points for words or words that shouldn't be hyphenated at all
+\date{}
+%\pagestyle{empty}
+\begin{document}
+%\pagestyle{empty}
+%\vspace{-2cm}
+%\\
+\title{\vspace{-2cm}Evidence-based Software Evolution and Adaptation \\of Smart Systems\\ \vspace{.2cm} {\normalsize {\bf Applicant}: Patrizio Pelliccione - University of Gothenburg}\\ \vspace{-.2cm} {\normalsize {\bf Participating researchers}: Jan Bosch, Ivica Crnkovic, and Christos Dimitrakakis - Chalmers}}
+%\title{\vspace{-2cm}SoS-Reliance: Systems-of-Systems Reliance\\ \vspace{-.2cm} {\normalsize Patrizio Pelliccione, University of Gothenburg}}
+
+\renewcommand{\footskip}{20pt}
+ 
+\newcommand{\name}{{\tt EVO\&ADA}} 
+
+%\pagestyle{empty}
+\maketitle
+%\thispagestyle{empty}
+%\pagestyle{empty}
+%----------------------------------------------------------------------------------------
+%	SPECIFIC AIMS
+%----------------------------------------------------------------------------------------
+
+\vspace{-2cm}
+
+\section{Purpose and aims}\label{sec:purpose}
+\vspace{-.4cm}
+
+Software is becoming predominant in every relevant system in the world.
+%near future will exhibit levels of autonomy that
+%will put new demands on the engineering of such systems
+%One of the characteristics of software systems of today and of the near future is their continuous and rapid change~\cite{Mens2008}. 
+Example of systems made smart by software are 
+%Smart systems range from 
+self-driving cars, self-flying
+airplanes, self-managing telecom networks, and smart
+factories. 
+%Every relevant system in the world is
+%increasingly driven by software, extended with sensors and
+%actuators and embedded in the real world with a level of
+%awareness unfathomable even a few decades ago. 
+Smart systems will be increasingly characterized by continuous and rapid change~\cite{Mens2008}, and
+%will exhibit levels of autonomy that
+%will put new demands on the engineering of such systems.
+%Moreover, they
+will employ continuous evolution of functionality and performance, and continuous learning 
+%continuous deployment, continuous 
+from observations on their own
+behavior~\cite{Bosch2016}. 
+%, shared learning of more and less effective behaviors as
+%well as continuous evolution of functionality and performance~\cite{Bosch2016}. 
+%Further, by monitoring the system's performance and the users' reactions to new functionality, it is possible to improve the software in short feedback cycles. 
+%Additionally, users can directly be involved in the adaptation of services for their individual needs, and even change the system directly to fit their needs. 
+
+DevOps is increasingly attracting the attention of development and release teams looking to increase the speed of application delivery~\cite{Bass2015}.
+%Reducing the time between committing a change to a system and the change being placed into normal production, while ensuring high quality is one of the key ambition of DevOps~\cite{Bass2015}.
+A study performed by Puppet Labs in 2015~\cite{PuppetLab2015} indicates that organizations using DevOps practices -- which require close and frequent interactions among software engineering, quality assurance, and operations teams -- ship code 30 times faster (and complete deployments 8,000 times faster), have 50\% fewer failed deployments, and restore service 12 times faster than organizations who stick to more traditional methods.
+Practices such as DevOps are becoming increasing popular in small and large companies including Amazon\footnote{Amazon deploys new software to production every 11.6 seconds on average in May of 2011, \url{https://www.youtube.com/watch?v=dxk8b9rSKOo}}, Facebook\footnote{Facebook releases to production twice a day, \url{http://www.infoq.com/presentations/Facebook-Release-Process}}, and Google\footnote{Many Google services are released multiple times a week, \url{http://www.infoq.com/presentations/google-test-automation}}. 
+In spite of these attractive results, practices involving fast and frequent interactions have also shown {\bf major weaknesses}: while focusing on the rapid changing of implementations, they suffer from a lack of control of software quality, performance, scalability, etc.
+Other problems originate in the fact that focusing only on small changes may hamper long-term innovation because structured way of keeping track of progress in the large is lacking~\cite{TurkFR14a}.
+For instance, the results of a survey made by XebiaLabs in 2013~\cite{Bass2015}, which analyzed the opinion of over 130 practitioners, show that the deployment process followed within those companies was ``not reliable'' (7.5\% of respondents) or however needed ``improvement'' (57.5\% of respondents).
+The same survey identified the biggest challenges in today's deployment processes: dealing with too many errors, dealing with ad-hoc automation, and managing inconsistencies across environments and applications.
+
+It is then clear that a chasm exists between industry's immediate needs -- frequent change and fast releases -- and the necessity to support quality development -- not only for economic reasons but also to foster sustainable societal development at large.
+Recent agile practices cater to the former, and traditional software engineering practices target the latter through modeling, analysis, and verification. Many well developed and proven software engineering methods exist to manage the quality of software systems, however, these methods mainly support development from scratch, and provide support for modeling, analysis, verification and validation of the entire system. Such methods ensure
+correctness, but require huge efforts and resources, and are becoming obsolete for continuously and rapidly
+changing systems.
+With continuously changing software, new challenges appear – {\bf how to efficiently manage the continuous and rapid changes while at the same time ensuring the quality of the software?}
+
+%\name{} (Data-driven Evolution and Adaptation) 
+%The project
+\name{} (Evidence-based Software Evolution and Adaptation of Smart Systems) 
+aims at providing concrete answers to this pressing question. The project's overall strategy is to continuously collect data on the performance and behavior of the system and the elements it interacts with, to learn models and properties from such collected data, and to support change. % based on such learned information.
+Change can be performed autonomously at runtime (self-adaptation), or be implemented by human developers (continuous evolution); in both cases, the decision to change is based on the information previously learned and on an analysis that assesses the impact of the new functionality in a predictive fashion. %, according to evolved requirements. 
+Supporting changing evolution is not limited to running software, but includes all sorts of software-related artifacts, such as requirements, architecture, and test cases.
+In all cases, it supports the automatic deployment of changes in production systems with a firm assessment of correctness, robustness, and other qualities of the system in operation.
+
+The overall research challenge of \name{} is to combine continuous software evolution and (self-)adaptation as required by near future smart systems, and to
+bridge the gap between ``agile'' methods focused on efficiency and formal methods towards the definition of an evidence-based and verification-driven software development. This overall challenge will be addressed through the following research challenges:
+
+\begin{enumerate}
+\item {\bf Evidence-based} - Hot to validate any new development or change to the system from the perspective of the value that it delivers?
+\item {\bf Continuous evolution} - How to facilitate developers to effectively predict consequences of potentially applied changes?
+\item {\bf Self-adaptation} - How to achieve that the system itself maintains the architectural integrity and ensures its quality despite adaptation?
+\item {\bf Combining evolution and adaptation} - How to combine the feedback loops of continuous evolution with the autonomic control loops of self-adaptation?
+%enable maintaining alignment of all lifecycle artifacts in a continuously evolving system?
+\end{enumerate}
+
+%
+%\vspace{-.2cm}
+%\begin{quote}
+%{\em This project aims at .}
+%\end{quote}
+%\vspace{-.2cm}
+
+
+
+
+\vspace{-.5cm}
+
+\section{Survey of the field}\label{sec:sota}
+\vspace{-.4cm}
+
+The literature overview is organized in sections that focus on different angles of works related to \name{}. We will describe works related to evidence-based software engineering, interactive machine learning (our strategy to learn and validate value of evolutions and changes), software evolution, and self-adaptive systems. %For these aspects we provide an overview of state of the art. 
+
+\noindent {\em \underline{Evidence-based engineering.}} Already in 2003, Boehm pointed out that value-based software
+engineering is essential for companies to continuously validate
+what generates the highest return of investment~\cite{Boehm2003}. 
+%By
+%continuous gathering of feedback on the current expenses and the
+%expected profits of a project, and then making adjustments and
+%corrective actions based upon these, he showed how companies
+%can re-evaluate expenses and profits throughout a project. 
+As a
+result of such an approach, only components that are deemed
+economically viable will be developed~\cite{Biffl2005}.
+More recently, the adoption of data-driven development practices
+in relation to software features and functionality has been
+increasingly recognized. Critical to these practices is frequent
+experimentation with software functionality in products in the
+field with the intention to continuously collect data to measure and validate customer value. 
+%In Bird et al [22], data-driven
+%practices are defined as a crucial part of empirical software
+%engineering and as practices in which continuous collection of
+%data is used to understand what is successful development of
+%software systems. The authors outline a development process in
+%which metrics related to product quality are continuously
+%collected with the goal to inform estimates of post-release failures
+%early in the software development cycle, as well as during the
+%implementation and testing phases. Such estimates can help focus
+%testing, code and design reviews and guide corrective actions and
+%decision-making activities.
+%In similar, but with online systems as the primary focus, Kohavi et
+%al [16] 
+The work in~\cite{Kohavi10} presents how controlled experiments are widely used and
+referred to as randomized experiments, A/B testing, split test,
+weblabs, live traffic experiments, flight and as bucket tests. %In
+%their research, the authors 
+The paper focuses on online controlled experiments
+conducted on live traffic, and in order to support data-driven
+decisions in online businesses such as e.g. Amazon, eBay, Yahoo
+and MSN. The conclusion is that controlled experiments are critical
+for businesses, and that small differences in key metrics can have
+significant impact on businesses' annual revenue.
+%Fagerholm [23] combines critical aspects of experimentation with
+%key elements from the lean startup methodology [24], and 
+%proposes a framework for continuous experimentation. In this
+%framework, consecutive iterations of the ‘Build-Measure-Learn’
+%feedback loop are used to structure the development process, and
+%any assumptions on product value are systematically tested in
+%order to have data inform further development of the product.
+By advocating frequent validation of value, all the approaches
+mentioned above are close to the concept of validated learning~\cite{LeanStartup11}. 
+%At the heart of this concept, ideas are quickly turned into
+%testable products, data is collected by measuring how the product
+%is actually used by a selected segment of customers, and ideas for
+%product improvement and innovation are based on what is learned
+%by analyzing this data. In this way, e
+Experimentation helps
+understanding where to spend R\&D efforts and identifying functionalities
+that add real value to customers.
+
+New methodologies are needed in order to learn and validate value in the context of smart systems. Our strategy is
+to investigate interactive machine learning techniques. 
+
+
+\noindent {\em \underline{Interactive Machine Learning}}: 
+Statistical inference and decision theory is an overarching framework
+for learning and decision making under uncertainty, that forms the
+basis of all recent advances in artificial intelligence, machine
+learning and systems of intelligent agents. 
+%Recent breakthroughs in
+%modelling, advanced computational techniques and approximation methods and
+%computing power have catapulted methods rooted in probability and game
+%theory to applications in the real world, such as robotics, image
+%recognition, translation, automatic control and advertising.
+
+
+The problem of sequential decision making under uncertainty is of high importance for smart systems. 
+Often smart systems have to collaborate and interact with other systems to solve joint works. It involves three
+different aspects: i) agreeing on a joint action; ii) learning from experience
+while trying to solve the task; and iii) actually formulating detailed plans, communicating information and
+co-ordinating. The problem of making sequential decisions under uncertainty is of
+particular interest in the field of reinforcement
+learning~\cite{suba,BertsekasTsitsiklis:NDP}. In recent year, advances
+in that field with models based on deep neural
+networks~\cite{mnih2015human}, simulation-based inference (approximate
+Bayesian computation~\cite{icml:abcrl}) and highly efficient planning
+methods such as upper confidence bound applied to trees
+(UCT~\cite{ECML:Kocsis+Szepesvari:2006}) have resulted in a series of
+breakthroughs in applicability. % Sub-areas of the field, such as Bayesian optimisation~\cite{srinivas:gp-bandits:icml2010},
+%have also found extensive application in both classical optimisation
+%problems and in other areas such as experiment design for drug
+%development~\cite{williams2015cheaper}. 
+However, large scale advances in these fields have been focused mainly
+on the single agent framework. Solutions for multi-agent problems have
+remained stubbornly small-scale, as solution complexity generally
+increases exponentially with the number of agents. However, under
+certain assumptions it can be shown that co-operative problems can be
+solved efficiently~\cite{brammert:duct:jair:2014}.
+%, even under constraints, in a static setting~\cite{brammert:duct:jair:2014}.
+
+In this project we aim at proposing innovative interactive machine learning~\cite{interactiveMachineLearning} approaches able to %provide   
+%users with continuous feedback about the effects of the policies they specified
+%and at the same time to 
+continuously learn about the actual value a new development or change delivers. %By exploiting also the knowledge acquired via interactions of %with 
+%similar users
+%the proposed approaches  will be able to continuously refine, retune and improve the privacy policy specifications. 
+%It is important to note that interaction cycles in interactive machine
+%learning are typically more rapid, focused, and incremental than in traditional machine learning~\cite{interactiveMachineLearningExperience}.
+%Also, this increases the opportunities for users to impact the learner and, in turn, for the learner to
+%impact the users. Consequently, it will be difficult to
+%decouple the influence of users on the outcome and study such systems in isolation~\cite{interactiveMachineLearningExperience}. 
+%Our aim in this project is to use machine learning to refine specified privacy policies and to learn new ones. 
+
+
+\noindent {\em \underline{Evolution.}} Although software evolution was recognized as a specific characteristic of software that requires a dedicated treatment, in recent years a number of challenges in relation to an efficient development of continuously evolving software were identified. The introduction of changes is allowed, to a larger extent, to different stakeholders including end-users and under less control than before~\cite{Mens2005,Baresi06}. The first concern in software evolution management is evolvability assessment. There exist several evolvability analysis methods, e.g. ALMA~\cite{Bengtsson2004}, or LiSCIA~\cite{BD10} methods that focus on maintainability and reveal potential problems as a software system evolve. Our work in~\cite{DiCosmo2011} proposes a model-based approach to support the evolution of FOSS systems; in the context of this paper evolution consists on installation, removal, or upgrade of software packages. The approach is composed of a simulation environment~\cite{DiRuscio2014} and a fault detector component~\cite{DiRuscio2015}.
+
+Liu and Wang~\cite{LW05} propose a metric-based approach to evaluate software architecture adaptability. In our work~\cite{PCM12}, three main different approaches in evolvability assessment are identified (scenario-based, experience-based, and metrics-based). All these approaches are based on empirical results while theoretical foundations are missing. The second concern of software evolution is to maintain evolvability, which is done through maintaining quality attributes related to evolvability in the evolution process:  e.g. analysis performance and reliability for evolving systems~\cite{Koziolek2012}. A systematic approach of impact of changes to evolvability-related quality attributes is however missing. 
+
+\noindent {\em \underline{System adaptation.}} 
+Self-adaptive systems are systems that autonomously decide how to adapt the system at runtime to environment (context) and user changes and threats~\cite{BSG09,DG13}. A self-adaptive system should be able to monitor itself and its context, to detect context changes, to decide how to react and act to execute such decisions~\cite{ST09}. Self-adaptive systems are classified by their characteristics, known as self-* properties~\cite{KC03,BJM05}. Even with good responses to both system and context changes a set of high-level goals ``should be maintained regardless of the environment conditions''~\cite{CG08}: the joint ability of effectively reacting to changes without degrading the level of dependability is a key factor for delivering successful systems that continuously satisfy evolving user requirements. Several approaches have been proposed to deal with self-adaptation, such as~\cite{terBeek2015,BE10,BA12,Bucchiarone2015}, though they essentially deal with planned adaptations. However, adaptation and evolution cannot always be anticipated or it might not be convenient to anticipate all possible system changes~\cite{ACD11,G10,G12}. Furthermore, these approaches only address problems where the adaptation and the measurements is on the system itself and the user's behavior is neglected. One interesting approach is presented in~\cite{QG08} where the authors extend the notion of contracts with composition operators that are used to compose the component with its environment; the framework supports compositional verification. We investigated a preliminary approach towards the definition of a theoretical assume-guarantee adaptation model in~\cite{IPT09}.
+%\noindent {\em \underline{Runtime verification based on monitors}}: 
+%%Runtime verification based on monitors has become the basic means of detecting software failures in open environments. 
+%The main idea of runtime verification based on monitors is to synthesize a monitor that can check whether the runtime behaviors satisfy or diverge from desired properties~\cite{Delgado2004,Leucker2009293}.
+%Distributed and networked systems pose new challenges to monitoring with respect to monolithic systems, e.g., (i) cross-border interactions are expensive and may take place over unsafe mediums, (ii) the lack of a {\em global clock} hampers ordering of events and precise monitoring of consequentiality properties~\cite{Francalanza2013}. 
+%%Bauer et al.~\cite{Bauer2011} point out that two-valued semantics cannot be used to monitor all properties, such as liveness properties,
+%%and propose three-valued semantics called $LTL_3$. The semantics of $LTL_3$ is defined as follows: 1) satisfied; 2) violated; and 3) inconclusive. The same authors also extend $LTL_3$ with four-valued semantics: 1) satisfies the
+%% property, 2) violates the property, 3) will presumably violate the property, or 4) will presumably conform to the property in the future, once the system has stabilized.
+%Existing run-time monitoring approaches suffer from
+%two main limitations. First, they provide limited information to be exploited at run-time for early detecting
+%and managing situations that most probably will lead to failures. Second, they mainly rely on logic-based
+%specifications, whose intrinsic complexity might hamper their use in industrial contexts.
+%We will investigate approaches to automatically generate predictive monitors for networked systems 
+%able to predict policy violations that most probably will happen in the near future and to provide information that can be
+%exploited to define strategies to prevent such failures. 
+%First works in the direction of predictive monitoring might be find in~\cite{Bauer2011}, where the authors % point out that two-valued semantics cannot be used to monitor all properties, such as liveness properties,
+%%and 
+%propose three-valued semantics called $LTL_3$. The semantics of $LTL_3$ is defined as follows: 1) satisfied; 2) violated; and 3) inconclusive. The same authors also extend $LTL_3$ with four-valued semantics: 1) satisfies the
+% property, 2) violates the property, 3) will presumably violate the property, or 4) will presumably conform to the property in the future, once the system has stabilized.
+%%We proposed a monitoring approach, which returns  seven different values
+%%representing the degree of controllability of the system and the distance of the potential incoming failure. The approach is under revision in one top journal.
+%Moreover, as can be seen in WP1, %the notation used to express properties to be
+%%monitored will be the one conceived in this project. Therefore, 
+%the specification of privacy policies to be monitored %temporal properties 
+%will be kept as simple as possible while
+%maintaining an acceptable expressive power. 
+%
+%\noindent {\em \underline{Interactive Machine Learning}}: 
+%Statistical inference and decision theory is an overarching framework
+%for learning and decision making under uncertainty, that forms the
+%basis of all recent advances in artificial intelligence, machine
+%learning and systems of intelligent agents. 
+%%Recent breakthroughs in
+%%modelling, advanced computational techniques and approximation methods and
+%%computing power have catapulted methods rooted in probability and game
+%%theory to applications in the real world, such as robotics, image
+%%recognition, translation, automatic control and advertising.
+%
+%
+%The problem of sequential decision making under uncertainty is of high importance in multi-agent systems. It involves three
+%different aspects: i) agreeing on a joint policy to use when a task is given; ii) learning from experience
+%while trying to solve the task; and iii) actually formulating detailed plans, communicating information and
+%co-ordinating. The problem of making sequential decisions under uncertainty is of
+%particular interest in the field of reinforcement
+%learning~\cite{suba,BertsekasTsitsiklis:NDP}. In recent year, advances
+%in that field with models based on deep neural
+%networks~\cite{mnih2015human}, simulation-based inference (approximate
+%Bayesian computation~\cite{icml:abcrl}) and highly efficient planning
+%methods such as upper confidence tees
+%(UCT\cite{ECML:Kocsis+Szepesvari:2006}) have resulted in a series of
+%breakthroughs in applicability. % Sub-areas of the field, such as Bayesian optimisation~\cite{srinivas:gp-bandits:icml2010},
+%%have also found extensive application in both classical optimisation
+%%problems and in other areas such as experiment design for drug
+%%development~\cite{williams2015cheaper}. 
+%However, large scale advances in these fields have been focused mainly
+%on the single agent framework. Solutions for multi-agent problems have
+%remained stubbornly small-scale, as solution complexity generally
+%increases exponentially with the number of agents. However, under
+%certain assumptions it can be shown that co-operative problems can be
+%solved efficiently~\cite{brammert:duct:jair:2014}.
+%%, even under constraints, in a static setting~\cite{brammert:duct:jair:2014}.
+%
+%In this project we aim at proposing innovative interactive machine learning~\cite{interactiveMachineLearning} approaches able to provide   
+%users with continuous feedback about the effects of the policies they specified
+%and at the same time to learn about actual needs of the user. By exploiting also the knowledge acquired via interactions of %with 
+%similar users
+%the proposed approaches  will be able to continuously refine, retune and improve the privacy policy specifications. 
+%%It is important to note that interaction cycles in interactive machine
+%%learning are typically more rapid, focused, and incremental than in traditional machine learning~\cite{interactiveMachineLearningExperience}.
+%%Also, this increases the opportunities for users to impact the learner and, in turn, for the learner to
+%%impact the users. Consequently, it will be difficult to
+%%decouple the influence of users on the outcome and study such systems in isolation~\cite{interactiveMachineLearningExperience}. 
+%%Our aim in this project is to use machine learning to refine specified privacy policies and to learn new ones. 
+%
+%\vspace{.2cm}
+%Summarizing, in this project we ...
+%
+%\name{} will go beyond the current research on monitoring
+ 
+
+\vspace{-.5cm}
+
+
+\section{Project description}
+\vspace{-.4cm}
+
+
+
+To address the research challenges in Section 1, we organize the project into four workpackages, one for each research challenge.
+
+\vspace{.2cm}
+\noindent{\bf WP1 - Interactive machine learning to enable evidence-based engineering.}
+ 
+\noindent The overall goal of this WP is to develop new 
+interactive machine learning based approaches to enable the evaluation and understanding of the value a new increment or change brings to the system.
+We will then consider interactive machine learning that includes users in the learning loop~\cite{interactiveMachineLearning}.
+Interactive machine learning involves reinforcement learning~\cite{suba,BertsekasTsitsiklis:NDP} and active learning~\cite{ActiveLearning}.
+Reinforcement learning will be exploited to allow the software to learn its behaviour based on feedback from the environment 
+with the aim at converging to the identification of actual needs that will trigger an evolution or an adaptation. 
+For inferring human goals, we will investigate
+preference elicitation~\cite{rothkopf:peirl:ecml:2011} and inverse
+reinforcement learning~\cite{uai:irl,Choi:NPBIRL:nips2012}. In
+particular, our central goal will be to marry these techniques with deep learning
+and approximate Bayesian computation. 
+%Active learning~\cite{ActiveLearning} is a type of semi-supervised machine learning that will be exploited  to interactively query the user to obtain the desired output to take decisions. 
+Active learning~\cite{ActiveLearning} algorithms do not require a fully labeled dataset,
+but can demand user input when necessary, and can be combined with
+semi-supervised learning models. They will be exploited to interactively
+query the user to obtain the desired output to take decisions. 
+It is important to note that interaction cycles in interactive machine
+learning are typically more rapid, focused, and incremental than in traditional machine learning~\cite{interactiveMachineLearningExperience}.
+Also, this increases the opportunities for users to impact the learner and, in turn, for the learner to
+impact the users. Consequently, it will be difficult to
+decouple the influence of users on the outcome and study such systems in isolation~\cite{interactiveMachineLearningExperience}. 
+
+Given a set
+of models and goals, the final problem is actually optimising a model that precisely describes the user needs. There are many
+methods for optimisation, including
+UCT~\cite{ECML:Kocsis+Szepesvari:2006}, gradient
+methods~\cite{dimitrakakis:gbrl,ghavamzadeh:bpga,knowgrad}. The challenge in this project will be to use these techniques in a continuous setting; learning will trigger and drive the specific adaptation and/or evolution that will bring actual value to the system.
+
+\noindent {\bf Concrete outcomes}:
+ 
+\noindent {\bf O1.1} - Machine learning techniques to enable measuring the value that an evolution or adaptation deliver though continuous interactions with users;\\ 
+\noindent {\bf O1.2} - Identification and prioritization of new developments or changes that need to be made on the system according to the measure of value. 
+
+\vspace{.2cm}
+\noindent{\bf WP2 - Evolution framework to effectively predict consequences of potentially applied changes.}  
+
+%Self-adaptation to changes detected during operations can go a long way towards improving the flexibility and robustness of a complex software system, but it cannot cover all situations that require changes over the system's entire lifetime.
+%Specifically, changes may require adaptations that significantly affect many components at once, thus reducing the flexibility of the system which suddenly has to operate at the boundaries of its design envelope.
+%Monitored changes may also indirectly suggest to engineers new features that the system should be equipped with, or indirectly expose defective or otherwise unsatisfactory design choices.
+%The goal of this workpackage is therefore to seamlessly complement, and extend, self-adaptation with support for continuous, incremental, and flexible \emph{changes}, in a way that supports the \emph{long-term evolution} of complex software systems.
+\noindent The main objective of this WP is to conceive and develop an evolution framework to support an agile development process with frequent releases integrated with lightweight, incremental verification.  The idea is to reuse as much as possible the results of a previous verification step and accommodate within the verification procedure the changes  occurring in a new version.
+The framework will support developers by providing means to check the impact of changes in the requirements on the architecture and design of the system, and it will support developers in a seamless, tool-supported informed process of revision and evolution.
+The seamless integration of automated verification techniques will promote a verification-driven development process in which the verification techniques regulate and define the boundaries of evolution. 
+
+The evolution framework will be based on assume-guarantee reasoning~\cite{Pnueli1989} to deal with functional aspects of the system. It will provide theoretical foundations based on the syntactic representation of a system (like a grammar) as can be for instance extracted from the architecture of the system. (De-)Composition operators define ``breaking'' points of adaptation, i.e., they define a decomposition of the system conceived to support evolution. This syntactic decomposition of the system will be then enhanced with semantic annotation defining the properties the single part of the system guarantees when operating within an environment satisfying well defined assumptions.
+
+%
+%
+%In particular this 
+%WP will focus on the evolvability of the system, i.e. on the ability of a system to accommodate efficiently to changes.
+%%provide reasoning models for non-functional properties (NFPs) in respect to changes applied on SA, i.e. in relation the system evolvability. 
+%Evolvability is a complex property that comprises a number of subproperties that are in their turn defined by a number of characteristics that can be measurable~\cite{Mens2001}. %For example modularity is a subproperty of evolvability, and modularity can be expressed by cohesion and encapsulation metrics.  When a system is exposed to certain change, these sub-characteristics may be changed which will have impact on evolvability. 
+%Although evolvability was a research subject in many years, a main challenge is still remaining, i.e. how to maintain evolvability. 
+%To solve this challenge, we will develop methods for change analysis for systems built of components that are specified with a number of non-functional properties on the interface (architectural) level and dynamic (behavioral) level. The analysis will focus on co-evolution of a system and particular properties: 
+%For a given system $S$ and environment $E$, and a set of system properties $P$, applied $SA$ changes lead to $S^\prime$ or/and $E^\prime$, and $P^\prime$ where $S^\prime$$=$$S$$+$$\Delta$$S$, $E^\prime$$=$$E$$+$$\Delta$$E$, and $P^\prime$$=$$P$$+$$\Delta$$P$.  As a special case, we will provide methods for analysis whether a property $P$ is invariant w.r.t. a change $C$ for a given $S$. The changes are expressed as a) changes of the environment $E$ such as changes of boundary values of input/output parameters, resources, usage profile, and b) changes of the system $S$, such as updates of components, adding/removing components, updates of execution platform.
+
+\noindent {\bf Concrete outcomes}:
+ 
+\noindent {\bf O2.1} - Approach to support developers checking the impact of changes;\\
+\noindent {\bf O2.2} - Evolution framework based on assume guarantee.
+
+\vspace{.2cm}
+\noindent{\bf WP3 - Adaptation framework to preserve architectural integrity and quality despite adaptation.}  
+
+\noindent Several approaches have been proposed in the last years to deal with adaptation, however, dealing with unplanned adaptation and providing cost-effective techniques is still an open problem.  As highlighted in~\cite{ACD11,G10,G12}, uncertainty is becoming a first-class concern of today's software systems. Uncertainty calls for adaptation strategies able to determine under what conditions desired goals will be achieved and behavioral invariance will be preserved~\cite{ACD11,G10,G12}. 
+
+Within this WP, we will devise an adaptation framework to support unplanned adaptations in a controlled and reliable way. The framework will be defined in collaboration with the evolution framework of WP2 (towards the definition of a unique adaptation and evolution framework). The adaptation framework will allow the description of adaptation in terms of changes in some parts of the system, that once applied, preserve suitable invariants. The idea is to support the definition of conditions concerning the parts affected by the change, to be proved at run-time for guaranteeing the correctness of the adaptation, i.e., the conformance to the system invariants. In other words, we aim at performing partial proof before deployment, based on the partial information that is available off-line, and to exploit the result of the off-line verification after deployment. 
+Similarly to WP2 we aim at exploiting assume guarantee as the instrument to annotate the partial information and the results of the verification performed offline.  
+
+We will design and develop algorithms to automatically compute conditions to be exploited at run-time to understand precisely the effect of an adaptation to the affected part, as well as to the other parts of the system. These algorithms will be specialized to the selected abstraction level and to the composition operator. We will consider existing works, like the approach presented in~\cite{Cobleigh2003}. The idea is to label every component with assumptions that the component makes on its environment in order to guarantee its properties. By suitably combining the set of assume/guarantee properties, we will demonstrate the correctness of the entire system (i.e. that invariants satisfaction is preserved despite of adaptation) without the need of re-verifying the entire system.
+
+\noindent {\bf Concrete outcomes}:
+  
+
+\noindent {\bf O3.1} - Adaptation framework to support unplanned adaptations in a controlled and reliable way;\\
+\noindent {\bf O3.2} - Algorithms to automatically compute conditions to be exploited at run-time to understand precisely the effect of an adaptation to the affected part, as well as to the other parts of the system.
+
+\vspace{.2cm}
+\noindent {\bf WP4: Combining evolution and adaptation.} 
+
+\noindent The overall goal of this WP is to combine the feedback loop of continuous evolution with the autonomic control loops of self-adaptation.
+The feedback loop, defined  between the R\&D team and systems in the field, has the ambition to determine whether the
+deployed functionality is providing the intended value to the
+customers or to the company itself, as well as to determine whether the quality of the deployed functionality is acceptable according to well-defined metrics.
+
+Autonomic control loops are typically composed of the monitoring, analysis, planning, and execution phases (e.g. the MAPE-loop and its extensions~\cite{MARTAssurance}) and are used to engineer and implement the (self-)adaptability of the system. 
+
+This WP will investigate strategies to identify the best solution to combine the two different loops. The WP will try to give an answer to the following questions:
+(i) Are the loops disconnected, loosely connected or intermixed? 
+(ii) Is each loop feeding the other?
+(iii) Might a cycle in a loop trigger a cycle in the other loop? 
+(iv) Can the two loops be executed in parallel?
+
+An initial work in this direction is described in~\cite{Bosch2016}. Bosch is one of the participants of the application and will contribute to this work.
+
+\noindent {\bf Concrete outcomes}:
+ 
+\noindent {\bf O4.1} - Strategies to combine the feedback loop of continuous evolution with the autonomic control loops of self-adaptation.
+
+%
+%
+%\noindent {\bf WP4: Demonstration and validation.} 
+%The overall goal of this WP is the integration of the developed techniques into a coherent platform, which will provide ...
+%
+%
+%\noindent {\bf Concrete outcomes}:
+% 
+%\noindent {\bf O4.1} - Proof-of-concept implementation of the platform in the context of mobile applications;\\
+%\noindent {\bf O4.2} - Continuous validation by involving representative users.
+
+
+
+\vspace{-.3cm}
+
+\subsection{Significance and Relevance}
+\vspace{-.2cm}
+
+\noindent {\bf Significance.} 
+Over the last years with the advent of agile methods as a first step, software engineering is moving towards continuous development and deployment of software. Finally, the true potential of software is on the verge of being realized. However, an essential challenge remains: Traditional software engineering employs processes, mostly performed by humans, but this is no longer applicable in a continuous context. Here, we need to rely much more on software architecture as the means for ensuring system properties, but we lack a theoretical foundation. The goal of this project framework is to build the foundational pillars for a controlled continuous software engineering paradigm that is architecture centric. This approach introduces a number of research challenges related to a question how to relate changes introduced in the system to the induced changes of system properties. Providing solutions (by analysis and experimentation performed in parallel to the running system) will enable performing rapid system changes in a controlled manner. This challenge is also recognized in the German Science Foundation's priority program SPP 1593 ``Design for Future – Managed Software Evolution'' that covers 13 software engineering research projects across different universities on that topic.
+
+
+\noindent {\bf Relevance.} 
+The modern infrastructure (Internet, Internet of Things, cloud-computing infrastructure) enables a rapid deployment of services based on software, access to any type of data, and feedback from users about the attractiveness of the provided service. A fast reaction, improvement, or any type of adjustment, has become a competitive edge in survival on the market. The companies that will be able to utilize the opportunity to be fast and flexible, but at the same time keep the high software quality, and enable continuous significant innovation, will achieve a competitive advantage. This is of particular importance for Sweden, as we have a software-intensive systems industry (e.g., automotive, telecommunications, automation industry) where the requirements on the software are stricter in terms of dependability, but new requirements in terms of usability and adaptability are becoming increasingly important. Similar requirements are expressed in the Finish research agenda ``needs for Speed'' ({\small \url{www.tivit.fi}}).
+
+%The project results are expected to have a profound and long lasting impact on the research community and in industrial contexts.
+%We foreseen a large impact in the three research pillars of the project:
+%
+%\noindent {\em 1) ...}: 
+%
+%\noindent {\em 2) Runtime verification based on monitors}: the work performed in this project will shift the focus of runtime verification towards predictive approaches that working at runtime will be able to predict potential problems that most probably will happen in the near future. 
+%The predictive information will be exploited, e.g., by the system itself to switch to a safety mode in order to avoid potential failures or property/policy violations.
+%
+%\noindent {\em 3) Machine learning}: the use of machine learning in this challenging domain, which requires continuous and strong involvement of the user, will lead to the definition of innovative approaches. Interactions with machine learning will be rapid (updates and learning should be done immediately in response to user input), focused (only a particular aspect of the specification is updated), and incremental (the magnitude of the update is small; the specification does not change drastically with a single update). The strong synergy between software systems and humans is becoming a constant characteristic of autonomous systems, like industrial robots, autonomous cars, etc.
+
+\noindent {\bf Dissemination.} We will disseminate the results to the scientific community via publications at top-level venues, like: i) Journals: IEEE Transactions on Dependable and Secure Computing (TDSC), IEEE Transaction on Software Engineering (TSE); 
+ii) Magazines: Communications of the ACM, IEEE Software; Conferences: 
+International Conference on Software Engineering (ICSE);  International Conference on Foundations of Software Engineering (FSE); International Conference 
+Automated Software Engineering (ASE); International Conference on Dependable Systems and Networks (DSN); International Symposium on Software Reliability Engineering (ISSRE).
+%IEEE Symposium on Security and Privacy, 
+%Usenix Security Symposium, Privacy Enhancing Technologies Symposium (PETS), 
+%International Conference on Testing Software and Systems (ICTSS).
+
+%\noindent {\bf Transformational effect on society}: 
+%
+%\noindent {\bf Impact on industry.} 
+
+\vspace{-.3cm}
+
+
+
+%\vspace{-.1cm}
+\subsection{Preliminary results}\label{sec:preliminaryResults}
+\vspace{-.2cm}
+%\noindent {\em \underline{Properties specification languages and specification patterns} (WP1)}:  
+%The PI has a large and consolidated experience in specification languages and patterns. Property Sequence Charts (PSC)~\cite{AIP07} is a graphical language that has been conceived to facilitate the non trivial and error prone task of specifying
+%temporal properties correctly and without mathematical expertise. 
+%PSC has been adopted by MSC Tracer ({\small \url{http://www.pragmadev.com/product/tracing.html}}) as notation used for expressing temporal properties. Also, the SDL-RT standard V2.3 ({\small \url{http://www.sdl-rt.org/}}) 
+%integrates PSC to specify properties of interest. SDL-RT is an extension of the ITU SDL to express real time concepts
+%and it has been conceived to specify and design real time and embedded software. Extensions of PSC permit to express also real-time (called TPSC~\cite{TPSC}) and probabilistic properties (called PTPSC~\cite{PTPSC}). 
+%The work in~\cite{TSE2015} presents a unified catalogue that collects the existing specification patterns, i.e., qualitative~\cite{dwyer-99}, real-time~\cite{Konrad2005}, and probabilistic specification patterns~\cite{Grunske2008}, and combines them together with 40
+%newly identified patterns. The result is a single, comprehensive and coherent, property specification
+%pattern catalogue. This work offers also a natural language front-end, a structured English grammar, that maps patterns to a temporal logic of choice.
+%There is an ongoing experimentation with an automotive company in Germany to exploit this work for the specification and decomposition of safety requirements for highly automated driving systems.
+%A wizard tool, called PSPWizard, complements the unified pattern catalogue; it helps the user to choose the pattern in the catalogue, to instantiate it according to the requirement, and, finally, 
+%with facilities 
+%to automatically render concrete instances of property
+%specification patterns to formulae of an underlying temporal logic
+%of choice.
+
+%In 2008 Pelliccione is founding member of the International Workshop and ERCIM working group on Software Engineering for Resilient Systems (SERENE), % and of the ERCIM working group on the same field, %({\small \url{http://serene.disim.univaq.it/2015/working-group/}}) , 
+%%he is member of the steering committee, 
+%and he is organizing the 2015 edition. % ({\small \url{http://serene.disim.univaq.it/2015/}}).
+
+%\noindent {\em \underline{Runtime verification} (WP2)}: %\patrizio{To be done}
+%Schneider's work on runtime verification is important to the current application. This includes the development of a runtime monitoring framework based on rich automata \cite{CPS08lrt}, techniques for runtime verification of real-time properties \cite{CPS08sir}, and its realisation on the tool LARVA for monitoring Java programs  \cite{CPS09ltr}.
+%%Also, 
+%Schneider has been recently working on the combination of static and runtime verification techniques in the context of the VR StaRVOOrS project \cite{APS12uas}.
+%In~\cite{Seams2015} we propose a new method, called AC-contract (Adaptable Code-contract) that
+%starting from high-level requirements, identifies
+%properties that should hold locally on single parts of the
+%system. Then, local properties are represented as contracts directly on
+%the programming language.
+
+The PI has actively worked on the verification and analysis of %behavioural software architecture properties for 
+component-based, distributed and adaptive systems. 
+One of the approaches that has been produced is called Charmy~\cite{Pelliccione2009}, which aims to provide an easy and practical tool for supporting the iterative modelling and evaluation of software architectures. %Charmy simulation and model checking features help in understanding the functioning of the system and in discovering potential inconsistencies of the design. 
+Charmy makes use of the model checker SPIN that verifies properties expressed in LTL. The downside of LTL is the level of sophistication required in order to use it. 
+For this reason the PI has conceived Property Sequence Charts (PSC)~\cite{AIP07}, which is a graphical language that has been conceived to facilitate the non trivial and error prone task of specifying
+temporal properties correctly and without mathematical expertise. 
+PSC has been adopted by MSC Tracer ({\small \url{http://www.pragmadev.com/product/tracing.html}}) as notation used for expressing temporal properties. Also, the SDL-RT standard V2.3 ({\small \url{http://www.sdl-rt.org/}}) 
+integrates PSC to specify properties of interest. SDL-RT is an extension of the ITU SDL to express real time concepts
+and it has been conceived to specify and design real time and embedded software. Extensions of PSC permit to express also real-time (called TPSC~\cite{TPSC}) and probabilistic properties (called PTPSC~\cite{PTPSC}). 
+The work in~\cite{TSE2015} presents a unified catalogue that collects the existing specification patterns, i.e., qualitative~\cite{dwyer-99}, real-time~\cite{Konrad2005}, and probabilistic specification patterns~\cite{Grunske2008}; % and combines them together with 40
+%newly identified patterns. The 
+the result is a single, comprehensive and coherent, property specification
+pattern catalogue. This work offers also a natural language front-end, a structured English grammar, that maps patterns to a temporal logic of choice.
+There is an ongoing experimentation with an automotive company in Germany to exploit this work for the specification and decomposition of safety requirements for highly automated driving systems.
+
+Charmy has been also extended to support the correct and automatic assembly of evolving component-based systems~\cite{Pelliccione20082237}; the approach proposed in this paper exploits the software architecture validation to efficiently manage the reconfiguration of the entire system when one or more components need to be updated, still maintaining the required properties. The PI targeted also the evolution of Free and Open-Source Software (FOSS) Linux distributions with the aim of prevent specific classes of system configuration faults before performing the real upgrade~\cite{DiCosmo2011,DiRuscio2014,DiRuscio2015}. The main idea of Evoss (EVolution of free and Open-Source Software) is to specify in terms of models both system configuration and available packages, including maintainer scripts. The approach mainly consists of an upgrade simulator~\cite{DiRuscio2014} and a fault detector~\cite{DiRuscio2015}. 
+%The upgrade simulator~\cite{DiRuscio2014} is able to simulate system upgrades, before performing the real upgrade and then before (possibly) compromising the system integrity. Because the models contain also the description of the scripts, the simulation is not only a resolution of explicit dependencies among packages but it deals also with implicit dependencies, that is, dependencies that are not explicitly defined in the package metadata and other inconsistencies that current meta-installers are not able to discover. Once the system configuration is represented as a model, the configuration model is evaluated by a fault detector~\cite{DiRuscio2015} and specifically by means of queries, each devoted to discover a specific class of faults. The approach is intrinsically extensible so that user communities can add new queries when new classes of faults are identified. 
+The Evoss approach has been adopted by Caixa M\'agica ({\small \url{http://www.caixamagica.pt/}}), within the distribution CM14 ({\small \url{http://linux.caixamagica.pt/pag/documentacao/CM14/ManualCxM14.pdf}}).
+The PI's work in modelling and verifying adaptable and self-adaptable systems cover system adaptation that can be planned at design-time and those that cannot be anticipated at design-time. In the first group algebraic graph transformations techniques~\cite{WICSA2009} and typed (hyper) graph grammars~\cite{Bucchiarone2015,Ehrig2010} have been used to formally model self-healing systems and to prove consistency and operational properties. In the second group we defined a theoretical assume-guarantee framework that allows one to efficiently define under which conditions adaptation can be performed by still preserving the desired invariant~\cite{IPT09}. 
+
+
+%The developed approaches make use of model checking techniques~\cite{Pelliccione2009}, 
+%algebraic graph transformation~\cite{Ehrig2010}\patrizio{add the 2015 paper},
+%and of incremental verification~\cite{Pelliccione20082237} and assume-guarantee reasoning~\cite{IPT09} in order to cope with the state explosion problem. 
+Currently the PI is working on runtime verification approaches in the domain of autonomous drones~\cite{ASE2015} and in the automotive domain within the WASP project ({\small \url{wasp-sweden.org}}). This project will be profitably connected with these projects. %Moreover, results of a preliminary study about predictive monitoring is under revision to a top journal (already submitted improvements according to a major revision).
+
+Moreover, Jan Bosch will bring expertise in development processes and value-based software engineering, Ivica Crnkovic in component-based software engineering and evolution, and Christos Dimitrakakis in machine learning. 
+
+\subsection{Timetable and organization}
+\vspace{-.2cm}
+The \name{} project will be active during 4 years, and the group will consist of the PI, Patrizio Pelliccione (PP), working
+25\% on the project, 1 PhD student working 80\%  for 3 years (to be recruited) and three participating researchers, namely Jan Bosch (JB), Ivica Crnkovic (IC), and Christos Dimitrakakis (CD) working 10\% each during specific phases of the project.  PP will lead the project and each WP and will ensure coherence and consistency among the different parts of the project. JB will mainly contribute to WP4, IC to WP2, and CD to WP1. There will be weekly project meetings to exchange ideas and discuss progresses.
+
+WP1 (M1-M30) will start at the beginning of the project and will end after 2.5 years.  WP2 (M1-M36) will run for the first 3 years, while WP3 (M12-M48) will run for the last 3 years of the project. 
+Finally,  WP4 (M12-M48) will run for the last three years of the project, even though the WP will slowly start at M12 and will gradually increase according to the progresses of the other WPs. 
+The three participants will help driving the research and establishing profitable connections with other initiatives at Chalmers, like software center (\url{http://www.software-center.se/} - JB is the director), ICT area of advance of Chalmers (\url{https://www.chalmers.se/en/areas-of-advance/ict/Pages/default.aspx} - IC is the director), WASP (\url{http://wasp-sweden.org/} - both PP and JB are leading projects within WASP). 
+%$PhD_1$ will focus on the definition of user-centric specifications and continuous monitoring approaches for personal data protection (WP1 and WP2), while $PhD_2$ will focus on enhancement of user perception through interactive machine learning (WP3). WP3 will start at the beginning of year 2.
+%$PhD_1$ will initiate at the beginning of the project focusing initially on the definition of user-centric specifications but taking in consideration that the language will serve as specification language for the monitoring. The work on continuous monitoring approaches will start after the end of the first year.
+%$PhD_2$ will start after the first year of the project and will finish with the end of the project. 
+%$post_1$ will start with $PhD_1$ and will focus on WP1 and WP2. 
+%$post_2$ will start with $PhD_2$ and will focus on WP3. 
+%WP4 will run from the initial months of the project till the end of it and each member of the project will contribute to it; the project will be organized in continuous validations performed through the demonstrators in WP4.
+%The $PI$ will lead the project and WP3; moreover, he will 
+%actively work in each WP and will ensure coherence and consistency among the different parts of the project.
+%There will be weekly project meetings to exchange ideas and discuss progresses.
+
+%The length of the project is four years and the team is composed by Patrizio Pelliccione (PI) , Gerardo Scheider and a PhD student under their supervision.
+%There will be weekly project meetings to exchange ideas and discuss progresses. %Figure~\ref{fig:timetable} shows the organization of the three WPs in the five years of the project.
+
+%\begin{wrapfigure}{r}{0.39\textwidth}
+%\vspace{-.8cm}
+%  \begin{center}
+%    %\includegraphics[width=0.38\textwidth]{Figures/table.pdf}
+%  \end{center}
+%  \vspace{-.6cm}
+%  \caption{Timetable}
+%  \label{fig:timetable}
+%  \vspace{-.4cm}
+%\end{wrapfigure} 
+ 
+%The work will start with WP1 (Emergent properties and means for modeling them). This WP will be split in three main parts: (i) definition of specification patterns (ii) property specification languages, and (iii) metrics to measure the reliance on emergent properties. The specification patterns and language will be concluded after 24 months, while the metrics will be produced after 36 months since they need input from WP2 and WP3.
+%WP2 (Theoretical foundations to the evolution of the SoS) is planned to start at the beginning of the second year and is
+%expected to be finished at the end of the third year (duration of 24 months). WP3 (Runtime verification) is planned to start at the beginning of the third year and will run until the end of the project (duration of 24 months).
+%
+%Each WP will have a mid-term validation phase (in the middle of its duration) %,
+%%where the validation will be 
+%performed on simple case studies. During the last 6 months of each WP there will be a more serious validation of the results, which will be performed on more complex case studies,
+%including the Mobile Multi-Robot SoS (within the SoS laboratory that will be operative before the starting date of the project) and  the industrial Intelligent Transport System in collaboration with companies that are involved in the NGEA project (see Section~\ref{sec:preliminaryResults} for further details).  
+%The expected final result will include several leading conferences (ICSE, ASE, ESEC/FSE, etc.) and 
+%journal papers (IEEE TSE, ACM TOSEM, Elsevier JSS, etc.), the prototype tools, and a completed PhD thesis.
+
+%\noindent {\bf Part of project cost}: $PhD_1$,  $PhD_2$, $post_1$ and $post_2$ will be financed by the grant requested from the Swedish
+%Research Council. The principal investigator will be financed by the University of Gothenburg.
+
+%\subsection{Measures of Success}
+%The following aspects will be considered to assess the success of the project: %\\
+%%\vspace{-.2cm}
+%
+%%\begin{enumerate}
+%%\item 
+%%\noindent 1. 
+%\noindent $\bullet$ Successful completion of the PhD thesis.\\
+%%\item 
+%%2. 
+%\noindent $\bullet$ At least 5 papers published in top conferences, and at least 3 journal papers published/submitted.\\
+%%\item 
+%%3. 
+%\noindent $\bullet$ Complete and ....\\
+%%\item 
+%%4. 
+%\noindent $\bullet$ Fully ....\\
+%%\item 
+%%5. 
+%\noindent $\bullet$ Successful application to challenging case studies. %\\
+%%\end{enumerate}
+
+
+
+%In the future we will have increased the exchange of vital information between vehicles, as well as between vehicles and infrastructure,? says Erik Israelsson
+%
+%Volvo Cars is currently investigating a whole range of connected car services that could be provided thanks to available in-car data and the Volvo Cloud. Smart cities could improve traffic flow management by optimizing traffic lights and speed limits and by offering re-routing suggestions based on real-time traffic jam alerts. Real-time warnings of dangerous weather and emergency road conditions or of emergency braking by other drivers could be provided. In the future, smart cities could even use connected street-lights to illuminate slippery road-sections in another colour when detected by a connected car to alert other road users to dangerous road conditions.
+%
+%
+%
+%
+%
+%
+%Sweden and traffic safety
+%
+%The automotive industry in Sweden has for decades been the recognized leader among car companies when it comes to building safety into their products, the vehicles. Considerable expertise has therefore been developed by some sub-contractors and in related research institutions.
+%Today, Sweden is a world leader in many areas of road safety. An important part of the successful road safety work is the development of intelligent transport systems, ITS. The Swedish Transport Administration conducts research and development in the field of ITS in collaboration with the automotive industry, academia and other stakeholders in the transport sector. Together they create cross-border solutions for monitoring, control and information. Solutions that cannot only be used in Sweden, but which are also available for international distribution.
+%
+%
+%
+%Volvo Cars is currently investigating a whole range of connected car services that could be provided thanks to available in-car data and the Volvo Cloud. Smart cities could improve traffic flow management by optimizing traffic lights and speed limits and by offering re-routing suggestions based on real-time traffic jam alerts. Real-time warnings of dangerous weather and emergency road conditions or of emergency braking by other drivers could be provided. In the future, smart cities could even use connected street-lights to illuminate slippery road-sections in another colour when detected by a connected car to alert other road users to dangerous road conditions.
+% 
+%Road Status technology has been developed over many years at Volvo Cars and is currently being piloted in Sweden and Norway with a fleet that will extend to 1,000 cars.
+% 
+%If a Volvo car detects that it is slippery on a certain stretch of road, for example, it can make other connected cars aware of this via the Volvo Cloud so they are forewarned. Such connected car services could deliver both personal and societal benefits by reducing the potential for accidents and lowering the cost of road maintenance by making winter road maintenance more efficient,? said Klas Bendrik, adding ?Car makers have the potential to deliver real benefits to society by democratizing anonymized car data. This is something that Volvo Cars feels very strongly about.?
+% 
+%It is another step forward on an exciting journey made possible by the evolution of the connected car in a connected society. In the future it will be possible to connect such innovative cloud-based technology with traffic management ecosystems in different countries in standardized forms and maximize the sharing of real-time traffic information data ? not only with other cars but eventually with wider society. (\url{https://www.media.volvocars.com/global/en-gb/media/pressreleases/159478/volvo-cars-connected-car-program-delivers-pioneering-vision-of-safety-and-convenience})
+%
+%?In the future we will have increased the exchange of vital information between vehicles, as well as between vehicles and infrastructure,? says Erik Israelsson. ?There is considerable potential in this area, including safer traffic, a more comfortable drive and improved traffic flow,? he adds.
+% 
+%?This will bring us closer to our safety vision that by 2020 no one should be killed or seriously injured in a new Volvo car. And it?s another way in which the ?Designed around you? philosophy improves the driving experience,? concludes Erik Israelsson, Project Leader Cooperative ITS (Intelligent Transport System) at Volvo Car Corporation. \url{https://www.media.volvocars.com/global/en-gb/media/pressreleases/157065/volvo-cars-puts-1000-test-cars-to-use-scandinavian-cloud-based-project-for-sharing-road-condition-in}
+%
+%"In the future we will have advanced exchange of vital information between vehicles such as their position, speed and direction," says Erik Israelsson, Project Leader Cooperative ITS (Intelligent Transport Systems) at Volvo Car Corporation. \url{https://www.media.volvocars.com/global/en-gb/media/pressreleases/46351}
+
+
+%The Connected Vehicle Safety Pilot Program is part of a major scientific research program run jointly by the U.S. Department of Transportation (DOT) and its research and development partners in private industry. The Connected Vehicle Safety Research Program supports the development of safety applications based on vehicle-to-vehicle (V2V) and vehicle-to-infrastructure (V2I) communications systems, using dedicated short-range communications (DSRC) technology. The Safety Pilot is designed to determine the effectiveness of these safety applications at reducing crashes and to show how real-world drivers will respond to these safety applications in their vehicles. The test will include many vehicles with vehicle awareness devices, others with integrated safety systems, and others that use aftermarket safety devices to communicate with surrounding vehicles. All of these technologies are based on DSRC technology. The Safety Pilot will include multiple vehicle types?cars, trucks, and transit vehicles. - 
+
+
+ 
+
+ 
+
+
+
+\vspace{-.4cm}
+
+\subsection{International and National Collaborations }\label{sec:collaboration}
+\vspace{-.3cm}
+The PI is an associate professor at the University of Gothenburg (GU)\footnote{Before moving to Sweden, the PI worked at the University of L'Aquila, Italy, within the group led by Paola Inverardi, group internationally recognized for the application of rigorous methods to software production to improve software quality.}, Computer Science and Engineering department. 
+%The group is internationally recognized for their excellence in software engineering. 
+%The group has also consolidated collaboration with companies, as testified by the software center initiative ({\small \url{http://www.software-center.se/}}). 
+The national and international cooperation includes activities on different levels: common research projects, common organisation of research events such as conferences and workshops, networks or working groups, common research and similar. 
+
+The PI has several industrial contacts, including: Ericsson AB (Staffan Ehnebom, Peter Eriksson R., Magnus Standar, Anders Henriksson, Rohit Giuliani), Saab AB (Jonas Lindgren), Volvo Group (Anders Magnusson, Mafijul Islam), Volvo Car Group (Jonn Lantz, Daniel Borgentun, Anders Alminger, Peter Gergerly), Google (Marija Mikic-Rakic), Axis Communication AB (Baldvin Gislason Bern), Jeppesen (Thekla Damaschke, Peter Sutton), Microchip (Leila Oehman Denton), Systemite AB (Ali Shahrokni, Jan S\"odeberg), Arccore (Michael Svenstam), Vector (Bengt Samuelsson), ABB (Manuel Oriol), SAP (Antonino Sabetta), Thales (Francesco Monai), etc. 
+
+
+The PI has also ongoing collaboration with, among others, Hans Hansson, Daniel Sundmark, and Jan Carlson (M\"alardalen University), Jakob Axelsson (SICS), Per Runesson (Lund University), Dimos Dimarogonas (KTH), Helena Holmstr\"om, Ulrik Eklund, and Romina Spalazzese (University of Malm\"o), 
+Alexander Romanovsky and John Fitzgerald (University of Newcastle), Robert Nord (SEI CMU), Rich Hillard (MIT), Jeff Kramer, Sebastian Uchitel, and Alessandra Russo (Imperial College), Andr\'as Pataricza (Budapest University of Technology and Economics), Philippe Kruchten (University of British Columbia), Patricia Lago (Vrije Universiteit Amsterdam), Paris Avgeriou (University of Groningen), Lars Grunske (University of Stuttgart), Antony Tang and Markus Lumpe (Swinburne University of Technology, Australia), Roberto Di Cosmo and Stefano Zacchiroli (Paris Diderot University), Paola Inverardi, Marika Di Benedetto, and the entire department of computer science and engineering, %etc. %Henry Muccini, Alfonso Pierantonio, Vittorio Cortellessa, Massimo Tivoli, etc. 
+(L'Aquila University, Italy), Antonia Bertolino, Felicita di Giandomenico and Stefania Gnesi (Italian National Research Council), Carlo Ghezzi, Luciano Baresi, Elisabetta Di Nitto and Raffaela Mirandola (Politecnico di Milano), Alessandro Fantechi (University of Florence), Gerardo Canfora and Massimiliano Di Penta (University of Sannio), Paolo Ciancarini (University of Bologna).
+
+%\noindent {\bf Scientific advisory board:} To continuously ensure that the project directions will be appropriate, an international scientific advisory board will be appointed. %to advise the management board. %The scientific advisors will receive copies of project reports and progress updates, and will provide advises. % by email or in person (if convenient). %Advisors will be formally consulted annually ahead of the annual review meeting but may offer advice or request information at any time.
+%The scientific advisors who have {\em already agreed} to make up the advisory board and that {\em strongly support} this application %for the project 
+%are all of world-leading standing and their expertise covers all of the areas the project is involved in (alphabetically ordered):
+%
+%\noindent $\bullet$ Eng. {\bf Antonia Bertolino} 
+%is a top researcher of CNR (the Italian National Research Council). %in the Software Engineering \& Dependable Computing (SEDC) Research Laboratory at ISTI - Istituto di Scienza e Tecnologie dell'Informazione A.Faedo in Pisa. 
+%She is a leading researcher in
+% testing techniques and tools, in software reliability, and in monitoring.
+%Articles of Antonia count {\bf 4,255} cit. and she has {\bf 33} as h-index according to Google scholar. %: {\small \url{http://scholar.google.com/citations?user=PwYT6EMAAAAJ}}.
+%
+%\noindent $\bullet$ Prof. {\bf Lionel Briand} 
+%is a full Professor and lead scientist of the Software Verification and Validation Laboratory at the University of Luxembourg. %'s Centre for ICT Security, Reliability, and Trust (SnT). 
+%Lionel is a top scientist in testing, verification, and validation of software systems
+%and applications of machine learning and evolutionary computing to software engineering.
+%His articles count {\bf 19,167} citations and he has {\bf 66} as h-index. %: {\small \url{http://scholar.google.com/citations?user=AhgjQ2QAAAAJ}}.
+%
+%
+%\noindent $\bullet$ Prof. {\bf Elena Ferrari} is a full professor of Computer Science at the University of Insubria, Italy where she leads the STRICT SociaLab and is the scientific director of the K\&SM Research Center.
+%She is an outstanding researcher in various aspects of data management, including  data security, privacy and trust,  social networks, and  cloud computing. % and emergency management.
+%Articles of Elena count {\bf 8,543} citations and she has {\bf 44} as h-index. %: {\small \url{http://scholar.google.se/citations?user=x8XlRFgAAAAJ&hl=en}}.
+%
+%%\noindent $\bullet$ Dr. {\bf Magnus Larsson} is development manager at ABB Robotics. He was the Development Manager of ABB India and previously the Program Manager for Software Research at ABB. He has vast experience in research and development, management, and strategy planning.
+%%
+
+
+\vspace{-.4cm}
+
+\subsection{Other Grants}
+\vspace{-.3cm}
+The PI is leading two projects within the Wallenberg Autonomous Systems Program (WASP) research program ({\small \url{http://wasp-sweden.org/}}). The program addresses research on autonomous systems acting in collaboration with humans, adapting to their environment through sensors, information and knowledge, and forming intelligent systems-of-systems. %Software is the main enabler in autonomous systems, and is an integrated research theme of the program. 
+Each project is financing a PhD student which is supervised by the PI; he will ensure co-operation between this project and the WASP research program.
+
+The PI is also involved in two FFI Vinnova projects, both coordinated by Volvo Car Group, called Next Generation Electrical Architecture (NGEA) and Next Generation Electrical Architecture 2 (NGEA2). The project aims at providing directives for the electrical architecture of future vehicles. 
+
+%The PI is also involved with the Bright project ({\small \url{http://cis.mak.ac.ug/sida-ict4d/}}), building research capacity in innovative information and communication technologies for development (ICT4D) for sustainable socio-economic growth in Uganda.
+
+The PI is also an active researcher within the software center initiative ({\small \url{www.software-center.se}}).
+Finally, while working in the University of L'Aquila, the PI has been involved (from proposal writing till project accomplishment) in 4 successful EU projects and 5 successful Italian projects. He also worked on the writing and submission of  2 EU proposals and 1 Italian project proposal that have been accepted and financed after he moved to Sweden.
+
+%%Gerardo \patrizio{To be added}
+%Schneider 
+%is a co-applicant of the VR project {\it StaRVOOrS: Unified Static and Runtime Verification of Object Oriented Software} (2013-2016), which is relevant to the current application.
+%%Besides, he is currently a co-applicant of two other Swedish-funded projects: (i) the VR framework project {\it Reliable Multilingual Digital Communication: Methods and Applications} (2013-2017), and (ii) the SSF grant {\it Data Driven Secure Business Intelligence} (2013-2017).
+%Schneider is also applying for a VR project research grant with title {\it PolUser: Rich User-Controlled Privacy Policies}. The project is about privacy policies and there is no overlapping with this proposal. Schneider is also a co-applicant in the VR proposal {\it Unified Static and Runtime Verification of Distributed Software} aiming at the theoretical foundations of combining static and runtime verification; there is no overlapping with this application.
+
+\vspace{-.3cm}
+
+
+%
+%
+%\begin{wraptable}{r}{4.8cm} % Example table with text wrapping around it
+%\caption{Example Table}
+%\begin{center}
+%\begin{tabular}{l l r}
+%\toprule
+%\multicolumn{1}{c}{City} & {N\textsuperscript{a}} & {\%Silly}\\
+%\midrule
+%San Diego & 289 & 41\%\\
+%Seattle & 262 & 32\%\\
+%Galveston & 261 & 15\%\\
+%St Louis & 269 & 7\%\\
+%New York & 271 & 4\%\\
+%Baltimore & 231 & 2\%\\
+%\emph{Total} & 1,586 & 21\%\\
+%\hline 
+%\end{tabular}\\
+%\footnotesize\textsuperscript{a}{All participants clowns.}
+%\end{center}
+%\label{default}
+%\end{wraptable}
+%
+%\lipsum[8-10]
+%
+%\begin{wrapfigure}{r}{6.8cm} % Example figure with text wrapping around it
+%\includegraphics[scale=0.9]{Figures/Fig1.pdf}
+%\caption{\footnotesize Example wrapped figure. (A) Impressive microscopy image. (B) Impressive data.}
+%\end{wrapfigure}
+%
+%\lipsum[5]
+%
+%
+%\lipsum[25]
+%
+%\begin{figure}[b c] % Centered big figure at bottom of the page ([b] argument, could be "t" for top or "h" for here)
+%\centering
+%\includegraphics[scale = .80]{Figures/Fig2.pdf}
+%\caption{\footnotesize Big Figure legend Big Figure legend Big Figure legend Big Figure legend Big Figure legend Big Figure legend Big Figure legend Big Figure legend Big Figure legend.}
+%\label{fig2}
+%\end{figure}
+%
+%\lipsum[31-32]
+%
+%\begin{description}
+%\item[A.4. Yet another subheading.]{}
+%\end{description}
+%
+%\lipsum[55-56]
+%
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+%\newpage
+%{\scriptsize
+{\footnotesize
+\begin{spacing}{.001}
+\bibliography{main} % Use the NIHGrant.bib file for the reference list
+\bibliographystyle{nihunsrt} % Use the custom nihunsrt bibliography style included with the template
+\end{spacing}
+}
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
