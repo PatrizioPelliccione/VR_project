@@ -177,11 +177,11 @@ Supporting changing evolution is not limited to running software, but includes a
 In all cases, it supports the automatic deployment of changes in production systems with a firm assessment of correctness, robustness, and other qualities of the system in operation.
 
 The overall research challenge of \name{} is to combine continuous software evolution and (self-)adaptation as required by near future smart systems, and to
-bridge the gap between ``agile'' methods focused on efficiency and formal methods towards the definition of an evidence-based and verification-driven software development. This overall challenge will be addressed through the following research challenges:
+bridge the gap between ``agile'' methods focused on efficiency and formal methods towards the definition of {\bf an evidence-based and verification-driven software development}. This overall challenge will be addressed through the following research challenges:
 
 \begin{enumerate}
 \item {\bf Evidence-based} - Hot to validate any new development or change to the system from the perspective of the value that it delivers?
-\item {\bf Continuous evolution} - How to facilitate developers to effectively predict consequences of potentially applied changes?
+\item {\bf Continuous evolution} - How to help developers to effectively predict consequences of potentially applied changes?
 \item {\bf Self-adaptation} - How to achieve that the system itself maintains the architectural integrity and ensures its quality despite adaptation?
 \item {\bf Combining evolution and adaptation} - How to combine the feedback loops of continuous evolution with the autonomic control loops of self-adaptation?
 %enable maintaining alignment of all lifecycle artifacts in a continuously evolving system?
@@ -259,10 +259,13 @@ mentioned above are close to the concept of validated learning~\cite{LeanStartup
 %by analyzing this data. In this way, e
 Experimentation helps
 understanding where to spend R\&D efforts and identifying functionalities
-that add real value to customers.
+that add real value to customers. 
 
-New methodologies are needed in order to learn and validate value in the context of smart systems. Our strategy is
-to investigate interactive machine learning techniques. 
+\noindent {\em Contribution beyond the state of the art}:  
+Most of the approaches of value-based software
+engineering exploit customers (i.e. humans) to identify the most promising solution, according to a defined value function.
+In the context of smart systems, new methodologies are needed in order to select the best solution according to a multi-dimensional notion of value. Our strategy is
+to investigate interactive machine learning techniques that will enable smart systems to select their optimal evolution and/or adaptation strategy.
 
 
 \noindent {\em \underline{Interactive Machine Learning}}: 
@@ -275,8 +278,6 @@ learning and systems of intelligent agents.
 %computing power have catapulted methods rooted in probability and game
 %theory to applications in the real world, such as robotics, image
 %recognition, translation, automatic control and advertising.
-
-
 The problem of sequential decision making under uncertainty is of high importance for smart systems. 
 Often smart systems have to collaborate and interact with other systems to solve joint works. It involves three
 different aspects: i) agreeing on a joint action; ii) learning from experience
@@ -293,14 +294,14 @@ breakthroughs in applicability. % Sub-areas of the field, such as Bayesian optim
 %have also found extensive application in both classical optimisation
 %problems and in other areas such as experiment design for drug
 %development~\cite{williams2015cheaper}. 
-However, large scale advances in these fields have been focused mainly
+
+\noindent {\em Contribution beyond the state of the art}:  Large scale advances in these fields have been focused mainly
 on the single agent framework. Solutions for multi-agent problems have
 remained stubbornly small-scale, as solution complexity generally
 increases exponentially with the number of agents. However, under
 certain assumptions it can be shown that co-operative problems can be
-solved efficiently~\cite{brammert:duct:jair:2014}.
+solved efficiently~\cite{brammert:duct:jair:2014}. 
 %, even under constraints, in a static setting~\cite{brammert:duct:jair:2014}.
-
 In this project we aim at proposing innovative interactive machine learning~\cite{interactiveMachineLearning} approaches able to %provide   
 %users with continuous feedback about the effects of the policies they specified
 %and at the same time to 
@@ -315,12 +316,26 @@ continuously learn about the actual value a new development or change delivers. 
 %Our aim in this project is to use machine learning to refine specified privacy policies and to learn new ones. 
 
 
-\noindent {\em \underline{Evolution.}} Although software evolution was recognized as a specific characteristic of software that requires a dedicated treatment, in recent years a number of challenges in relation to an efficient development of continuously evolving software were identified. The introduction of changes is allowed, to a larger extent, to different stakeholders including end-users and under less control than before~\cite{Mens2005,Baresi06}. The first concern in software evolution management is evolvability assessment. There exist several evolvability analysis methods, e.g. ALMA~\cite{Bengtsson2004}, or LiSCIA~\cite{BD10} methods that focus on maintainability and reveal potential problems as a software system evolve. Our work in~\cite{DiCosmo2011} proposes a model-based approach to support the evolution of FOSS systems; in the context of this paper evolution consists on installation, removal, or upgrade of software packages. The approach is composed of a simulation environment~\cite{DiRuscio2014} and a fault detector component~\cite{DiRuscio2015}.
+\noindent {\em \underline{Evolution.}} 
+%Although software evolution was recognized as a specific characteristic of software that requires a dedicated treatment, 
+%In recent years a number of new challenges in relation to an 
+Nowadays, the efficient development of continuously evolving software is affected by new challenges.
+In fact, the introduction of changes is allowed, to a larger extent, to different stakeholders including end-users and under less control than before~\cite{Mens2005,Baresi06}. The first concern in software evolution management is evolvability assessment. There exist several evolvability analysis methods, e.g. ALMA~\cite{Bengtsson2004}, or LiSCIA~\cite{BD10} methods that focus on maintainability and reveal potential problems as a software system evolve. Our work in~\cite{DiCosmo2011,DiRuscio2014,DiRuscio2015} proposes a model-based approach to support the evolution of FOSS systems; in the context of this paper evolution consists on installation, removal, or upgrade of software packages. %The approach is composed of a simulation environment~\cite{DiRuscio2014} and a fault detector component~\cite{DiRuscio2015}.
+Liu and Wang~\cite{LW05} propose a metric-based approach to evaluate software architecture adaptability. In our work~\cite{PCM12}, three main different approaches in evolvability assessment are identified (scenario-based, experience-based, and metrics-based). 
+The second concern of software evolution is to maintain evolvability, which is done through maintaining quality attributes related to evolvability in the evolution process:  e.g. analysis performance and reliability for evolving systems~\cite{Koziolek2012}. 
 
-Liu and Wang~\cite{LW05} propose a metric-based approach to evaluate software architecture adaptability. In our work~\cite{PCM12}, three main different approaches in evolvability assessment are identified (scenario-based, experience-based, and metrics-based). All these approaches are based on empirical results while theoretical foundations are missing. The second concern of software evolution is to maintain evolvability, which is done through maintaining quality attributes related to evolvability in the evolution process:  e.g. analysis performance and reliability for evolving systems~\cite{Koziolek2012}. A systematic approach of impact of changes to evolvability-related quality attributes is however missing. 
+\noindent {\em Contribution beyond the state of the art}: All these approaches are based on empirical results while theoretical foundations are missing. Moreover, a systematic approach of impact of changes to evolvability-related quality attributes is  missing. In this project we will develop techniques to measure and visualize the impact of evolution and changes on quality attributes. 
 
 \noindent {\em \underline{System adaptation.}} 
-Self-adaptive systems are systems that autonomously decide how to adapt the system at runtime to environment (context) and user changes and threats~\cite{BSG09,DG13}. A self-adaptive system should be able to monitor itself and its context, to detect context changes, to decide how to react and act to execute such decisions~\cite{ST09}. Self-adaptive systems are classified by their characteristics, known as self-* properties~\cite{KC03,BJM05}. Even with good responses to both system and context changes a set of high-level goals ``should be maintained regardless of the environment conditions''~\cite{CG08}: the joint ability of effectively reacting to changes without degrading the level of dependability is a key factor for delivering successful systems that continuously satisfy evolving user requirements. Several approaches have been proposed to deal with self-adaptation, such as~\cite{terBeek2015,BE10,BA12,Bucchiarone2015}, though they essentially deal with planned adaptations. However, adaptation and evolution cannot always be anticipated or it might not be convenient to anticipate all possible system changes~\cite{ACD11,G10,G12}. Furthermore, these approaches only address problems where the adaptation and the measurements is on the system itself and the user's behavior is neglected. One interesting approach is presented in~\cite{QG08} where the authors extend the notion of contracts with composition operators that are used to compose the component with its environment; the framework supports compositional verification. We investigated a preliminary approach towards the definition of a theoretical assume-guarantee adaptation model in~\cite{IPT09}.
+Self-adaptive systems are systems that autonomously decide how to adapt the system at runtime to environment (context) and user changes and threats~\cite{BSG09,DG13}. A self-adaptive system should be able to monitor itself and its context, to detect context changes, to decide how to react and act to execute such decisions~\cite{ST09}. Self-adaptive systems are classified by their characteristics, known as self-* properties~\cite{KC03,BJM05}. Even with good responses to both system and context changes a set of high-level goals ``should be maintained regardless of the environment conditions''~\cite{CG08}: the joint ability of effectively reacting to changes without degrading the level of dependability is a key factor for delivering successful systems that continuously satisfy evolving user requirements. Several approaches have been proposed to deal with self-adaptation, such as~\cite{terBeek2015,BE10,BA12,Bucchiarone2015}; these approaches use different techniques to guarantee the desired level of dependability.
+
+\noindent {\em Contribution beyond the state of the art}: 
+Several approaches have been proposed in the last years to deal with adaptation, however, dealing with unplanned adaptation and providing cost-effective techniques is still an open problem.  As highlighted in~\cite{ACD11,G10,G12}, uncertainty is becoming a first-class concern of today's software systems. Uncertainty calls for assurance techniques %adaptation strategies 
+able to determine under what conditions desired goals will be achieved and behavioral invariance will be preserved~\cite{ACD11,G10,G12} despite adaptation. 
+%Existing approaches essentially deal with planned adaptations. However, adaptation and evolution cannot always be anticipated or it might not be convenient to anticipate all possible system changes~\cite{ACD11,G10,G12}. 
+In this project, we describe a method that combines machine learning for decision-making with assurance techniques to guarantee the preservation of the desired level of dependability. 
+%Furthermore, these approaches only address problems where the adaptation and the measurements is on the system itself and the user's behavior is neglected. %One interesting approach is presented in~\cite{QG08} where the authors extend the notion of contracts with composition operators that are used to compose the component with its environment; the framework supports compositional verification. 
+%We investigated a preliminary approach towards the definition of a theoretical assume-guarantee adaptation model in~\cite{IPT09}.
 %\noindent {\em \underline{Runtime verification based on monitors}}: 
 %%Runtime verification based on monitors has become the basic means of detecting software failures in open environments. 
 %The main idea of runtime verification based on monitors is to synthesize a monitor that can check whether the runtime behaviors satisfy or diverge from desired properties~\cite{Delgado2004,Leucker2009293}.
@@ -443,21 +458,33 @@ methods~\cite{dimitrakakis:gbrl,ghavamzadeh:bpga,knowgrad}. The challenge in thi
 
 \noindent {\bf Concrete outcomes}:
  
-\noindent {\bf O1.1} - Machine learning techniques to enable measuring the value that an evolution or adaptation deliver though continuous interactions with users;\\ 
-\noindent {\bf O1.2} - Identification and prioritization of new developments or changes that need to be made on the system according to the measure of value. 
+\noindent {\bf O1.1} - Machine learning techniques that, working in continuous interactions with users, will enable measuring the value that an evolution or adaptation deliver;\\ 
+\noindent {\bf O1.2} - Metrics to identify and prioritize new developments and/or changes that need to be performed in order to increase the customer value.
+%Identification and prioritization of new developments or changes that need to be made on the system according to the measure of value. 
 
 \vspace{.2cm}
-\noindent{\bf WP2 - Evolution framework to effectively predict consequences of potentially applied changes.}  
+\noindent{\bf WP2 - Theoretical foundations to %Evolution framework to 
+effectively predict consequences of potentially applied changes.}  
 
 %Self-adaptation to changes detected during operations can go a long way towards improving the flexibility and robustness of a complex software system, but it cannot cover all situations that require changes over the system's entire lifetime.
 %Specifically, changes may require adaptations that significantly affect many components at once, thus reducing the flexibility of the system which suddenly has to operate at the boundaries of its design envelope.
 %Monitored changes may also indirectly suggest to engineers new features that the system should be equipped with, or indirectly expose defective or otherwise unsatisfactory design choices.
 %The goal of this workpackage is therefore to seamlessly complement, and extend, self-adaptation with support for continuous, incremental, and flexible \emph{changes}, in a way that supports the \emph{long-term evolution} of complex software systems.
-\noindent The main objective of this WP is to conceive and develop an evolution framework to support an agile development process with frequent releases integrated with lightweight, incremental verification.  The idea is to reuse as much as possible the results of a previous verification step and accommodate within the verification procedure the changes  occurring in a new version.
-The framework will support developers by providing means to check the impact of changes in the requirements on the architecture and design of the system, and it will support developers in a seamless, tool-supported informed process of revision and evolution.
+\noindent The main objective of this WP is to provide theoretical foundations to %conceive and develop an evolution framework to 
+support an agile development process with frequent releases integrated with lightweight, incremental verification.  The theoretical foundation should permit the %idea is to 
+reuse %as much as possible 
+of the results of a previous verification step and accommodate within the verification procedure the changes  occurring in a new version.
+The theoretical foundations %framework 
+will enable the development of techniques to measure and visualize the impact of changes in 
+%support developers by providing means to check the impact of changes in 
+ requirements,  architecture descriptions ,and design of the system. This will support developers in a seamless and tool-supported informed process of revision and evolution.
 The seamless integration of automated verification techniques will promote a verification-driven development process in which the verification techniques regulate and define the boundaries of evolution. 
 
-The evolution framework will be based on assume-guarantee reasoning~\cite{Pnueli1989} to deal with functional aspects of the system. It will provide theoretical foundations based on the syntactic representation of a system (like a grammar) as can be for instance extracted from the architecture of the system. (De-)Composition operators define ``breaking'' points of adaptation, i.e., they define a decomposition of the system conceived to support evolution. This syntactic decomposition of the system will be then enhanced with semantic annotation defining the properties the single part of the system guarantees when operating within an environment satisfying well defined assumptions.
+The theoretical foundations will investigate %evolution framework will be based on 
+the use of assume-guarantee reasoning~\cite{Pnueli1989} to represent the functionalities of the system. %deal with functional aspects of the system. 
+The idea is to extract a syntactic representation of the functionalities of the system (like a grammar) from the architecture description of the system. %It can be exploited to %will provide theoretical foundations based on 
+%provide a syntactic representation of a system (like a grammar) as can be for instance . 
+(De-)Composition operators are then used to define ``breaking'' points of adaptation, i.e., they define a decomposition of the system conceived to support evolution. This syntactic decomposition of the system will be then enhanced with semantic annotation defining the properties the single part of the system guarantees when operating within an environment satisfying well defined properties.
 
 %
 %
@@ -471,24 +498,81 @@ The evolution framework will be based on assume-guarantee reasoning~\cite{Pnueli
 
 \noindent {\bf Concrete outcomes}:
  
-\noindent {\bf O2.1} - Approach to support developers checking the impact of changes;\\
-\noindent {\bf O2.2} - Evolution framework based on assume guarantee.
+\noindent {\bf O2.1} - Theoretical foundations for supporting and enabling an evidence-based and verification-driven software development process;\\
+\noindent {\bf O2.2} - Techniques  to measure and visualize the impact of changes on quality attributes.
+%Approach to support developers checking the impact of changes. %Evolution framework based on assume guarantee.
 
 \vspace{.2cm}
-\noindent{\bf WP3 - Adaptation framework to preserve architectural integrity and quality despite adaptation.}  
+\noindent{\bf WP3 - Combination of machine learning and assurance techniques for controlled decision-making.} %Adaptation framework to preserve architectural integrity and quality despite adaptation.}  
 
-\noindent Several approaches have been proposed in the last years to deal with adaptation, however, dealing with unplanned adaptation and providing cost-effective techniques is still an open problem.  As highlighted in~\cite{ACD11,G10,G12}, uncertainty is becoming a first-class concern of today's software systems. Uncertainty calls for adaptation strategies able to determine under what conditions desired goals will be achieved and behavioral invariance will be preserved~\cite{ACD11,G10,G12}. 
+%\noindent Several approaches have been proposed in the last years to deal with adaptation, however, dealing with unplanned adaptation and providing cost-effective techniques is still an open problem.  As highlighted in~\cite{ACD11,G10,G12}, uncertainty is becoming a first-class concern of today's software systems. Uncertainty calls for adaptation strategies able to determine under what conditions desired goals will be achieved and behavioral invariance will be preserved~\cite{ACD11,G10,G12}. 
 
-Within this WP, we will devise an adaptation framework to support unplanned adaptations in a controlled and reliable way. The framework will be defined in collaboration with the evolution framework of WP2 (towards the definition of a unique adaptation and evolution framework). The adaptation framework will allow the description of adaptation in terms of changes in some parts of the system, that once applied, preserve suitable invariants. The idea is to support the definition of conditions concerning the parts affected by the change, to be proved at run-time for guaranteeing the correctness of the adaptation, i.e., the conformance to the system invariants. In other words, we aim at performing partial proof before deployment, based on the partial information that is available off-line, and to exploit the result of the off-line verification after deployment. 
-Similarly to WP2 we aim at exploiting assume guarantee as the instrument to annotate the partial information and the results of the verification performed offline.  
+\noindent The use of machine learning is
+especially promising for self-adaptive systems that 
+need to make decisions on how to self-adapt in order to operate in %themselves 
+ unknown and 
+unpredictable environments. % that they encounter at runtime.
+However, the adoption of machine learning for systems that require evidence about the preservation of the system's goals and dependability properties is particularly challenging.  
 
-We will design and develop algorithms to automatically compute conditions to be exploited at run-time to understand precisely the effect of an adaptation to the affected part, as well as to the other parts of the system. These algorithms will be specialized to the selected abstraction level and to the composition operator. We will consider existing works, like the approach presented in~\cite{Cobleigh2003}. The idea is to label every component with assumptions that the component makes on its environment in order to guarantee its properties. By suitably combining the set of assume/guarantee properties, we will demonstrate the correctness of the entire system (i.e. that invariants satisfaction is preserved despite of adaptation) without the need of re-verifying the entire system.
+Within this WP, we will investigate the combination of 
+machine learning  with assurance techniques to enable unplanned but controlled run-time self-adaptation.
+We plan to use reinforcement learning, which is 
+a method that involves
+an agent that acts on an environment with the goal on maximizing a numerical reward. %The
+%environment issues the rewards to the agent for every action
+%it receives. 
+Rewards are the mechanism to %and use them
+%to 
+improve the decision-making policy.
+
+
+% At design-time,
+%we break down safety-critical goals using, for example,
+%the GSN notation [4] so that we can formalize low-level
+%invariant properties that each agent has to meet. The point
+%is that at design-time we only anticipate the goals and the
+%invariants, while the actual behaviour of the agent is calculated
+%at run-time by machine learning; moreover, the output of
+%machine learning is controlled by a monitor that guarantees
+%the preservation of the invariants. 
+%Our method offers two ways
+%to deal with unpredictable and uncontrollable environments
+%that are dominated by uncertainty: A short loop performed
+%by each individual system while a long loop is based on
+%data collected by multiple systems. The short loop allows
+%each agent to self-adapt at run-time using machine learning
+%with predictive monitoring. The long loop leads developers
+%to produce a new version of the software based on field data
+%collected by multiple self-adaptive systems. We refer to this
+%cycle as evolution, a process similar to continuous deployment
+%of software, used in automotive companies such as Tesla [5]
+%as well.
+
+
+%devise an adaptation framework to support unplanned adaptations in a controlled and reliable way. The framework 
+The assurance techniques will build on the theoretical foundation proposed in WP2.  
+%be defined in collaboration with the evolution framework of WP2 (towards the definition of a unique adaptation and evolution framework). The adaptation framework will allow the description of adaptation in terms of changes in some parts of the system, that once applied, preserve suitable invariants. 
+The idea is the identification of properties to be checked locally 
+%to support the definition of conditions concerning the parts affected by the change, 
+%to be proved 
+at 
+run-time for guaranteeing the correctness of the adaptation, i.e., the conformance to the system invariants. In other words, 
+we aim at performing 
+partial proofs %, % before deployment, 
+based on the partial information that is available off-line, and to exploit the result of the off-line verification after deployment. 
+%Similarly to WP2 we aim at exploiting assume guarantee as the instrument to annotate the partial information and the results of the verification performed offline.  
+Indeed, not all system properties might be decomposed to enable compositional and incremental verification. However, in this WP we will focus on system properties that can be decomposed. 
+%We will also develop algorithms to automatically compute conditions to be exploited at run-time to understand precisely the effect of an adaptation to the affected part, as well as to the other parts of the system. 
+%These algorithms will be specialized to the selected abstraction level and to the composition operator. 
+%We will consider existing works, like the approach presented in~\cite{Cobleigh2003}. 
+%The idea is to label every component with assumptions that the component makes on its environment in order to guarantee its properties. By suitably combining the set of assume/guarantee properties, we will demonstrate the correctness of the entire system (i.e. that invariants satisfaction is preserved despite of adaptation) without the need of re-verifying the entire system.
 
 \noindent {\bf Concrete outcomes}:
   
 
-\noindent {\bf O3.1} - Adaptation framework to support unplanned adaptations in a controlled and reliable way;\\
-\noindent {\bf O3.2} - Algorithms to automatically compute conditions to be exploited at run-time to understand precisely the effect of an adaptation to the affected part, as well as to the other parts of the system.
+\noindent {\bf O3.1} - Method to combine machine learning for decision-making with assurance techniques to guarantee the preservation of the desired level of dependability; \\%Adaptation framework to support unplanned adaptations in a controlled and reliable way;\\
+\noindent {\bf O3.2} - Assurance techniques for run-time and incremental verification for guaranteeing the correctness of the self-adaptation.
+%Algorithms to automatically compute conditions to be exploited at run-time to understand precisely the effect of an adaptation to the affected part, as well as to the other parts of the system.
 
 \vspace{.2cm}
 \noindent {\bf WP4: Combining evolution and adaptation.} 
@@ -496,8 +580,7 @@ We will design and develop algorithms to automatically compute conditions to be 
 \noindent The overall goal of this WP is to combine the feedback loop of continuous evolution with the autonomic control loops of self-adaptation.
 The feedback loop, defined  between the R\&D team and systems in the field, has the ambition to determine whether the
 deployed functionality is providing the intended value to the
-customers or to the company itself, as well as to determine whether the quality of the deployed functionality is acceptable according to well-defined metrics.
-
+customers or to the company itself, as well as to determine whether the quality of the deployed functionality is acceptable according to well-defined metrics. 
 Autonomic control loops are typically composed of the monitoring, analysis, planning, and execution phases (e.g. the MAPE-loop and its extensions~\cite{MARTAssurance}) and are used to engineer and implement the (self-)adaptability of the system. 
 
 This WP will investigate strategies to identify the best solution to combine the two different loops. The WP will try to give an answer to the following questions:
