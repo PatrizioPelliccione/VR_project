@@ -325,7 +325,8 @@ continuously learn about the actual value a new development or change delivers. 
 %Although software evolution was recognized as a specific characteristic of software that requires a dedicated treatment, 
 %In recent years a number of new challenges in relation to an 
 Nowadays, the efficient development of continuously evolving software is affected by new challenges.
-In fact, the introduction of changes is allowed, to a larger extent, to different stakeholders including end-users and under less control than before~\cite{Mens2005,Baresi06}. The first concern in software evolution management is evolvability assessment. There exist several evolvability analysis methods, e.g. ALMA~\cite{Bengtsson2004}, or LiSCIA~\cite{BD10} methods that focus on maintainability and reveal potential problems as a software system evolve. Our work in~\cite{DiCosmo2011,DiRuscio2014,DiRuscio2015} proposes a model-based approach to support the evolution of FOSS systems; in the context of this paper evolution consists on installation, removal, or upgrade of software packages. %The approach is composed of a simulation environment~\cite{DiRuscio2014} and a fault detector component~\cite{DiRuscio2015}.
+The introduction of changes is allowed, to a larger extent, to different stakeholders including end-users%and under less control than before
+~\cite{Mens2005,Baresi06}. The first concern in software evolution management is evolvability assessment. There exist several evolvability analysis methods, e.g. ALMA~\cite{Bengtsson2004}, or LiSCIA~\cite{BD10} methods that focus on maintainability and reveal potential problems as a software system evolve. Our work in~\cite{DiCosmo2011,DiRuscio2014,DiRuscio2015} proposes a model-based approach to support the evolution of FOSS systems; in the context of this paper evolution consists on installation, removal, or upgrade of software packages. %The approach is composed of a simulation environment~\cite{DiRuscio2014} and a fault detector component~\cite{DiRuscio2015}.
 Liu and Wang~\cite{LW05} propose a metric-based approach to evaluate software architecture adaptability. In our work~\cite{PCM12}, three main different approaches in evolvability assessment are identified (scenario-based, experience-based, and metrics-based). 
 The second concern of software evolution is to maintain evolvability, which is done through maintaining quality attributes related to evolvability in the evolution process:  e.g. analysis performance and reliability for evolving systems~\cite{Koziolek2012}. 
 
@@ -461,11 +462,10 @@ to specify such a metric, we will investigate preference
 elicitation~\cite{rothkopf:peirl:ecml:2011} and inverse reinforcement
 learning~\cite{uai:irl,Choi:NPBIRL:nips2012} to infer it from human
 data. 
-
 On the modelling side, these techniques can be married with other
 advances in machine learning and statistics, such as semi-supervised
 models, deep learning and approximate Bayesian computation. Given a
-set of models and goals, the final problem is actually optimising the software in a way that satisfies the users' needs. There are many methods
+set of models and goals, the final problem is optimising the software in a way that satisfies the users' needs. There are many methods
 for optimisation, including UCT~\cite{ECML:Kocsis+Szepesvari:2006},
 gradient
 methods~\cite{dimitrakakis:gbrl,ghavamzadeh:bpga,knowgrad}. The
@@ -645,8 +645,7 @@ This WP will investigate strategies to identify the best solution to combine the
 (i) Are the loops disconnected, loosely connected or intermixed? 
 (ii) Is each loop feeding the other?
 (iii) Might a cycle in a loop trigger a cycle in the other loop? 
-(iv) Can the two loops be executed in parallel?
-
+(iv) Can the two loops be executed in parallel? 
 An initial work in this direction is described in~\cite{Bosch2016}. Bosch is one of the participants of the application and will contribute to this work.
 
 \noindent {\bf Concrete outcomes}:
