@@ -122,12 +122,12 @@
 %	SPECIFIC AIMS
 %----------------------------------------------------------------------------------------
 
-\vspace{-2cm}
+\vspace{-2.5cm}
 
 \section{Purpose and aims}\label{sec:purpose}
 \vspace{-.4cm}
  
-Software is becoming predominant in every relevant system in the world.
+Software is becoming predominant in every  system in the world.
 %near future will exhibit levels of autonomy that
 %will put new demands on the engineering of such systems
 %One of the characteristics of software systems of today and of the near future is their continuous and rapid change~\cite{Mens2008}. 
@@ -144,7 +144,8 @@ Smart systems will be increasingly characterized by continuous and rapid change~
 %will exhibit levels of autonomy that
 %will put new demands on the engineering of such systems.
 %Moreover, they
-will employ continuous evolution of functionality and performance, and continuous learning 
+will employ continuous evolution %of functionality and performance, 
+and continuous learning 
 %continuous deployment, continuous 
 from observations on their own
 behavior~\cite{Bosch2016}. 
@@ -156,7 +157,11 @@ behavior~\cite{Bosch2016}.
 DevOps is increasingly attracting the attention of development and release teams looking to increase the speed of application delivery~\cite{Bass2015}.
 %Reducing the time between committing a change to a system and the change being placed into normal production, while ensuring high quality is one of the key ambition of DevOps~\cite{Bass2015}.
 A study performed by Puppet Labs in 2015~\cite{PuppetLab2015} indicates that organizations using DevOps practices -- which require close and frequent interactions among software engineering, quality assurance, and operations teams -- ship code 30 times faster (and complete deployments 8,000 times faster), have 50\% fewer failed deployments, and restore service 12 times faster than organizations who stick to more traditional methods.
-Practices such as DevOps are becoming increasing popular in small and large companies including Amazon\footnote{Amazon deploys new software to production every 11.6 seconds on average in May of 2011, \url{https://www.youtube.com/watch?v=dxk8b9rSKOo}}, Facebook\footnote{Facebook releases to production twice a day, \url{http://www.infoq.com/presentations/Facebook-Release-Process}}, and Google\footnote{Many Google services are released multiple times a week, \url{http://www.infoq.com/presentations/google-test-automation}}. 
+Practices such as DevOps are becoming increasing popular in small and large companies including Amazon\footnote{Amazon deploys new software to production every 11.6 seconds on average in May of 2011, \url{https://goo.gl/fm6cuO}},  %\url{https://www.youtube.com/watch?v=dxk8b9rSKOo}}, 
+Facebook\footnote{Facebook releases to production twice a day, \url{https://goo.gl/Hz2dcy}},  
+%http://www.infoq.com/presentations/Facebook-Release-Process
+and Google\footnote{Many Google services are released multiple times a week, \url{https://goo.gl/jY2KJL}}. 
+%http://www.infoq.com/presentations/google-test-automation
 In spite of these attractive results, practices involving fast and frequent interactions have also shown {\bf major weaknesses}: while focusing on the rapid changing of implementations, they suffer from a lack of control of software quality, performance, scalability, etc.
 Other problems originate in the fact that focusing only on small changes may hamper long-term innovation because structured way of keeping track of progress in the large is lacking~\cite{TurkFR14a}.
 For instance, the results of a survey made by XebiaLabs in 2013~\cite{Bass2015}, which analyzed the opinion of over 130 practitioners, show that the deployment process followed within those companies was ``not reliable'' (7.5\% of respondents) or however needed ``improvement'' (57.5\% of respondents).
@@ -750,9 +755,10 @@ Moreover, a wizard tool makes possible the specification of temporal properties 
 %We are currently investigating the use of this work for specifying missions of robots within the EU project Co4Robots (\url{http://www.co4robots.eu/}).
 %There is an ongoing experimentation with an automotive company in Germany to exploit this work for the specification and decomposition of safety requirements for highly automated driving systems.
 
-Charmy has been also extended to support the correct and automatic assembly of evolving component-based systems~\cite{Pelliccione20082237}; the approach proposed in this paper exploits the software architecture validation to efficiently manage the reconfiguration of the entire system when one or more components need to be updated, still maintaining the required properties. The PI targeted also the evolution of Free and Open-Source Software (FOSS) Linux distributions with the aim of prevent specific classes of system configuration faults before performing the real upgrade~\cite{DiCosmo2011,DiRuscio2014,DiRuscio2015}. The main idea of Evoss (EVolution of free and Open-Source Software) is to specify in terms of models both system configuration and available packages, including maintainer scripts. %The approach mainly consists of an upgrade simulator~\cite{DiRuscio2014} and a fault detector~\cite{DiRuscio2015}. 
+Charmy has been also extended to support the correct and automatic assembly of evolving component-based systems~\cite{Pelliccione20082237}; the approach proposed in this paper exploits the software architecture validation to efficiently manage the reconfiguration of the entire system when one or more components need to be updated, still maintaining the required properties. The PI targeted also the evolution of Free and Open-Source Software (FOSS) Linux distributions with the aim of prevent specific classes of system configuration faults before performing the real upgrade~\cite{DiCosmo2011,DiRuscio2014,DiRuscio2015}. %The main idea of Evoss (EVolution of free and Open-Source Software) is to specify in terms of models both system configuration and available packages, including maintainer scripts. %The approach mainly consists of an upgrade simulator~\cite{DiRuscio2014} and a fault detector~\cite{DiRuscio2015}. 
 %The upgrade simulator~\cite{DiRuscio2014} is able to simulate system upgrades, before performing the real upgrade and then before (possibly) compromising the system integrity. Because the models contain also the description of the scripts, the simulation is not only a resolution of explicit dependencies among packages but it deals also with implicit dependencies, that is, dependencies that are not explicitly defined in the package metadata and other inconsistencies that current meta-installers are not able to discover. Once the system configuration is represented as a model, the configuration model is evaluated by a fault detector~\cite{DiRuscio2015} and specifically by means of queries, each devoted to discover a specific class of faults. The approach is intrinsically extensible so that user communities can add new queries when new classes of faults are identified. 
-The Evoss approach has been adopted by Caixa M\'agica ({\small \url{http://www.caixamagica.pt/}}), within the distribution CM14 ({\small \url{http://linux.caixamagica.pt/pag/documentacao/CM14/ManualCxM14.pdf}}).
+The %Evoss 
+approach has been adopted by Caixa M\'agica ({\small \url{http://www.caixamagica.pt/}}), within the distribution CM14 ({\small \url{http://linux.caixamagica.pt/pag/documentacao/CM14/ManualCxM14.pdf}}).
 The PI's work in modelling and verifying adaptable and self-adaptable systems cover system adaptation that can be planned at design-time and those that cannot be anticipated at design-time. In the first group algebraic graph transformations techniques~\cite{WICSA2009} and typed (hyper) graph grammars~\cite{Bucchiarone2015,Ehrig2010} have been used to formally model self-healing systems and to prove consistency and operational properties. In the second group we defined a theoretical assume-guarantee framework that allows one to efficiently define under which conditions adaptation can be performed by still preserving the desired invariant~\cite{IPT09}. 
 
 
@@ -761,7 +767,6 @@ The PI's work in modelling and verifying adaptable and self-adaptable systems co
 %and of incremental verification~\cite{Pelliccione20082237} and assume-guarantee reasoning~\cite{IPT09} in order to cope with the state explosion problem. 
 Currently the PI is working on runtime verification approaches in the domain of cooperative multi-robot systems in the context of the EU project Co4Robots ({\small \url{http://www.co4robots.eu/}}), in the domain of 
 autonomous multicopters~\cite{ASE2015}, and in the automotive domain within the WASP project ({\small \url{wasp-sweden.org}}). This project will be profitably connected with these projects. %Moreover, results of a preliminary study about predictive monitoring is under revision to a top journal (already submitted improvements according to a major revision).
-
 Moreover, Jan Bosch will bring expertise in development processes and value-based software engineering, Ivica Crnkovic in component-based software engineering and evolution, and Christos Dimitrakakis in machine learning. 
 
 \subsection{Timetable and organization}
@@ -885,10 +890,12 @@ The national and international cooperation includes activities on different leve
 The PI has several industrial contacts, including: Ericsson AB (Staffan Ehnebom, Peter Eriksson R., Magnus Standar), Saab AB (Jonas Lindgren), Volvo Group (Anders Magnusson, Mafijul Islam), Volvo Car Group (Jonn Lantz, Anders Alminger, Peter Gergerly), Google (Marija Mikic-Rakic), Amazon (Fabio Mancinelli), Axis Communication AB (Baldvin Gislason Bern), Jeppesen (Thekla Damaschke, Peter Sutton), Microchip (Leila Oehman Denton), Systemite AB (Mats Larsson, Jan S\"odeberg), Arccore (Michael Svenstam), Vector (Bengt Samuelsson), ABB (Manuel Oriol), SAP (Antonino Sabetta), Thales (Francesco Monai), etc. 
 
 
-The PI has also ongoing collaboration with, among others, Hans Hansson, Daniel Sundmark, and Jan Carlson (M\"alardalen University), Jakob Axelsson (RISE - SICS), Per Runesson (Lund University), Dimos Dimarogonas and Jana Tumova (KTH), Helena Holmstr\"om, Ulrik Eklund, and Romina Spalazzese (University of Malm\"o), Alberto Sangiovanni Vincentelli (EECS Berkeley),
-Alexander Romanovsky and John Fitzgerald (University of Newcastle), Jon Whittle (Monash University, Australia), Bran Selic (Malina Software Corp., Ottawa, Canada), Robert Nord (SEI CMU), Ian Gorton
-(Northeastern University, Seattle Campus), Rich Hillard (MIT), Jeff Kramer, Sebastian Uchitel, and Alessandra Russo (Imperial College), Andr\'as Pataricza (Budapest University of Technology and Economics), Philippe Kruchten (University of British Columbia), Patricia Lago (Vrije Universiteit Amsterdam), Paris Avgeriou (University of Groningen), Lars Grunske (University of Stuttgart), Antony Tang and Markus Lumpe (Swinburne University of Technology, Australia), Roberto Di Cosmo and Stefano Zacchiroli (Paris Diderot University), Paola Inverardi, Marika Di Benedetto, and the entire department of computer science and engineering, %etc. %Henry Muccini, Alfonso Pierantonio, Vittorio Cortellessa, Massimo Tivoli, etc. 
-(L'Aquila University, Italy), Antonia Bertolino, Felicita di Giandomenico and Stefania Gnesi (Italian National Research Council), and Carlo Ghezzi, Luciano Baresi, Elisabetta Di Nitto and Raffaela Mirandola (Politecnico di Milano). %, and Alessandro Fantechi (University of Florence).
+The PI has also ongoing collaboration with, among others, Hans Hansson and Jan Carlson (M\"alardalen University), Jakob Axelsson (RISE - SICS), Per Runesson (Lund University), Dimos Dimarogonas and Jana Tumova (KTH), %Helena Holmstr\"om, Ulrik Eklund, and Romina Spalazzese (University of Malm\"o), 
+Alberto Sangiovanni Vincentelli (EECS Berkeley),
+Alexander Romanovsky and John Fitzgerald (University of Newcastle), Jon Whittle (Monash University, Australia), Bran Selic (Malina Software Corp., Ottawa), %Robert Nord (SEI CMU), 
+Ian Gorton
+(Northeastern University, Seattle), Rich Hillard (MIT), Jeff Kramer, Sebastian Uchitel, and Alessandra Russo (Imperial College), Andr\'as Pataricza (Budapest University), Philippe Kruchten (University of British Columbia), Patricia Lago (Vrije Universiteit Amsterdam), Paris Avgeriou (Univ. of Groningen), Lars Grunske (Univ. of Stuttgart), Antony Tang and Markus Lumpe (Swinburne University of Technology, Australia), Roberto Di Cosmo and Stefano Zacchiroli (Paris Diderot University), Paola Inverardi, Marika Di Benedetto, and the entire department of computer science and engineering, %etc. %Henry Muccini, Alfonso Pierantonio, Vittorio Cortellessa, Massimo Tivoli, etc. 
+(L'Aquila University, Italy), Antonia Bertolino, Felicita di Giandomenico and Stefania Gnesi (CNR-Italy), and Carlo Ghezzi, Luciano Baresi, Elisabetta Di Nitto and Raffaela Mirandola (Politecnico di Milano). %, and Alessandro Fantechi (University of Florence).
 
 %\noindent {\bf Scientific advisory board:} To continuously ensure that the project directions will be appropriate, an international scientific advisory board will be appointed. %to advise the management board. %The scientific advisors will receive copies of project reports and progress updates, and will provide advises. % by email or in person (if convenient). %Advisors will be formally consulted annually ahead of the annual review meeting but may offer advice or request information at any time.
 %The scientific advisors who have {\em already agreed} to make up the advisory board and that {\em strongly support} this application %for the project 
