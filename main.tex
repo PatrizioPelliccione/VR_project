@@ -209,7 +209,7 @@ bridge the gap between ``agile'' methods focused on efficiency and formal method
 
 The literature overview is organized in sections that focus on different angles of works related to \name{}. We will describe works related to evidence-based software engineering, interactive machine learning (our strategy to learn and validate value of evolutions and changes), software evolution, and self-adaptive systems. %For these aspects we provide an overview of state of the art. 
 
-\noindent {\em \underline{Evidence-based engineering.}} Already in 2003, Boehm pointed out that value-based software
+\noindent {\bf Evidence-based engineering.} Already in 2003, Boehm pointed out that value-based software
 engineering is essential for companies to continuously validate
 what generates the highest return of investment~\cite{Boehm2003}. 
 %By
@@ -266,14 +266,14 @@ Experimentation helps
 understanding where to spend R\&D efforts and identifying functionalities
 that add real value to customers. 
 
-\noindent {\em Contribution beyond the state of the art}:  
+\noindent {\em \underline{Contribution beyond the state of the art}}:  
 Most of the approaches of value-based software
 engineering exploit customers (i.e. humans) to identify the most promising solution, according to a defined value function.
 In the context of smart systems, new methodologies are needed in order to select the best solution according to a multi-dimensional notion of value. Our strategy is
 to investigate interactive machine learning techniques that will enable smart systems to select their optimal evolution and/or adaptation strategy.
 
 
-\noindent {\em \underline{Interactive Machine Learning}}: 
+\noindent {\bf Interactive Machine Learning}: 
 Statistical inference and decision theory is an overarching framework
 for learning and decision making under uncertainty, that forms the
 basis of all recent advances in artificial intelligence, machine
@@ -287,7 +287,7 @@ The problem of sequential decision making under uncertainty is of high importanc
 Often smart systems have to collaborate and interact with other systems to solve joint works. It involves three
 different aspects: i) agreeing on a joint action; ii) learning from experience
 while trying to solve the task; and iii) actually formulating detailed plans, communicating information and
-co-ordinating. The problem of making sequential decisions under uncertainty is of
+coordinating. The problem of making sequential decisions under uncertainty is of
 particular interest in the field of reinforcement
 learning~\cite{suba,BertsekasTsitsiklis:NDP}. In recent year, advances
 in that field with models based on deep neural
@@ -300,7 +300,7 @@ breakthroughs in applicability. % Sub-areas of the field, such as Bayesian optim
 %problems and in other areas such as experiment design for drug
 %development~\cite{williams2015cheaper}. 
 
-\noindent {\em Contribution beyond the state of the art}:  Large scale advances in these fields have been focused mainly
+\noindent {\em \underline{Contribution beyond the state of the art}}:  Large scale advances in these fields have been focused mainly
 on the single agent framework. Solutions for multi-agent problems have
 remained stubbornly small-scale, as solution complexity generally
 increases exponentially with the number of agents. However, under
@@ -321,7 +321,7 @@ continuously learn about the actual value a new development or change delivers. 
 %Our aim in this project is to use machine learning to refine specified privacy policies and to learn new ones. 
 
 
-\noindent {\em \underline{Evolution.}} 
+\noindent {\bf Evolution.} 
 %Although software evolution was recognized as a specific characteristic of software that requires a dedicated treatment, 
 %In recent years a number of new challenges in relation to an 
 Nowadays, the efficient development of continuously evolving software is affected by new challenges.
@@ -330,12 +330,12 @@ The introduction of changes is allowed, to a larger extent, to different stakeho
 Liu and Wang~\cite{LW05} propose a metric-based approach to evaluate software architecture adaptability. In our work~\cite{PCM12}, three main different approaches in evolvability assessment are identified (scenario-based, experience-based, and metrics-based). 
 The second concern of software evolution is to maintain evolvability, which is done through maintaining quality attributes related to evolvability in the evolution process:  e.g. analysis performance and reliability for evolving systems~\cite{Koziolek2012}. 
 
-\noindent {\em Contribution beyond the state of the art}: All these approaches are based on empirical results while theoretical foundations are missing. Moreover, a systematic approach of impact of changes to evolvability-related quality attributes is  missing. In this project we will develop techniques to measure and visualize the impact of evolution and changes on quality attributes. 
+\noindent {\em \underline{Contribution beyond the state of the art}}: All these approaches are based on empirical results while theoretical foundations are missing. Moreover, a systematic approach of impact of changes to evolvability-related quality attributes is  missing. In this project we will develop techniques to measure and visualize the impact of evolution and changes on quality attributes. 
 
-\noindent {\em \underline{System adaptation.}} 
+\noindent {\bf System adaptation.} 
 Self-adaptive systems are systems that autonomously decide how to adapt the system at runtime to environment (context) and user changes and threats~\cite{BSG09,DG13}. A self-adaptive system should be able to monitor itself and its context, to detect context changes, to decide how to react and act to execute such decisions~\cite{ST09}. Self-adaptive systems are classified by their characteristics, known as self-* properties~\cite{KC03,BJM05}. Even with good responses to both system and context changes a set of high-level goals ``should be maintained regardless of the environment conditions''~\cite{CG08}: the joint ability of effectively reacting to changes without degrading the level of dependability is a key factor for delivering successful systems that continuously satisfy evolving user requirements. Several approaches have been proposed to deal with self-adaptation, such as~\cite{terBeek2015,BE10,BA12,Bucchiarone2015}; these approaches use different techniques to guarantee the desired level of dependability.
 
-\noindent {\em Contribution beyond the state of the art}: 
+\noindent {\em \underline{Contribution beyond the state of the art}}: 
 Several approaches have been proposed in the last years to deal with adaptation, however, dealing with unplanned adaptation and providing cost-effective techniques is still an open problem.  As highlighted in~\cite{ACD11,G10,G12}, uncertainty is becoming a first-class concern of today's software systems. Uncertainty calls for assurance techniques %adaptation strategies 
 able to determine under what conditions desired goals will be achieved and behavioral invariance will be preserved~\cite{ACD11,G10,G12} despite adaptation. 
 %Existing approaches essentially deal with planned adaptations. However, adaptation and evolution cannot always be anticipated or it might not be convenient to anticipate all possible system changes~\cite{ACD11,G10,G12}. 
