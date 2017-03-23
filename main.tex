@@ -180,9 +180,9 @@ The overall research challenge of \name{} is to combine continuous software evol
 bridge the gap between ``agile'' methods focused on efficiency and formal methods towards the definition of {\bf an evidence-based and verification-driven software development}. This overall challenge will be addressed through the following research challenges:
 
 \begin{enumerate}
-\item {\bf Evidence-based} - Hot to validate any new development or change to the system from the perspective of the value that it delivers?\vspace{-.1cm}
-\item {\bf Continuous evolution} - How to help developers to effectively predict consequences of potentially applied changes?\vspace{-.1cm}
-\item {\bf Self-adaptation} - How to achieve that the system itself maintains the architectural integrity and ensures its quality despite adaptation?\vspace{-.1cm}
+\item {\bf Evidence-based} - Hot to validate any new development or change to the system from the perspective of the value that it delivers?\vspace{-.2cm}
+\item {\bf Continuous evolution} - How to help developers to effectively predict consequences of potentially applied changes?\vspace{-.2cm}
+\item {\bf Self-adaptation} - How to achieve that the system itself maintains the architectural integrity and ensures its quality despite adaptation?\vspace{-.2cm}
 \item {\bf Combining evolution and adaptation} - How to combine the feedback loops of continuous evolution with the autonomic control loops of self-adaptation?
 %enable maintaining alignment of all lifecycle artifacts in a continuously evolving system?
 \end{enumerate}
@@ -422,39 +422,92 @@ In this project, we describe a method that combines machine learning for decisio
 \vspace{-.4cm}
 
 
-
 To address the research challenges in Section 1, we organize the project into four workpackages, one for each research challenge.
 
 \vspace{.2cm}
 \noindent{\bf WP1 - Interactive machine learning to enable evidence-based engineering.}
- 
-\noindent The overall goal of this WP is to develop new 
-interactive machine learning based approaches to enable the evaluation and understanding of the value a new increment or change brings to the system.
-We will then consider interactive machine learning that includes users in the learning loop~\cite{interactiveMachineLearning}.
-Interactive machine learning involves reinforcement learning~\cite{suba,BertsekasTsitsiklis:NDP} and active learning~\cite{ActiveLearning}.
-Reinforcement learning will be exploited to allow the software to learn its behaviour based on feedback from the environment 
-with the aim at converging to the identification of actual needs that will trigger an evolution or an adaptation. 
-For inferring human goals, we will investigate
-preference elicitation~\cite{rothkopf:peirl:ecml:2011} and inverse
-reinforcement learning~\cite{uai:irl,Choi:NPBIRL:nips2012}. In
-particular, our central goal will be to marry these techniques with deep learning
-and approximate Bayesian computation. 
-%Active learning~\cite{ActiveLearning} is a type of semi-supervised machine learning that will be exploited  to interactively query the user to obtain the desired output to take decisions. 
-Active learning~\cite{ActiveLearning} algorithms do not require a fully labeled dataset,
-but can demand user input when necessary, and can be combined with
-semi-supervised learning models. They will be exploited to interactively
-query the user to obtain the desired output to take decisions. 
-It is important to note that interaction cycles in interactive machine
-learning are typically more rapid, focused, and incremental than in traditional machine learning~\cite{interactiveMachineLearningExperience}.
-Also, this increases the opportunities for users to impact the learner and, in turn, for the learner to
-impact the users. Consequently, it will be difficult to
-decouple the influence of users on the outcome and study such systems in isolation~\cite{interactiveMachineLearningExperience}. 
+  
+\noindent The overall goal of this WP is to develop new interactive
+machine learning based approaches to enable the evaluation and
+understanding of the value a new increment or change brings to the
+system.  Specifically, we will interactive machine learning approaches
+that include users in the learning
+loop~\cite{interactiveMachineLearning}.  These include reinforcement
+learning~\cite{suba,BertsekasTsitsiklis:NDP} and active
+learning~\cite{ActiveLearning}. Feedback cycles in interactive machine
+learning are typically more rapid, focused, and incremental than in
+traditional machine
+learning~\cite{interactiveMachineLearningExperience}, since they
+involve humans giving frequent feedback to the system.  This increases
+the opportunities for users to impact the learner and, in turn, for
+the learner to impact the users. Consequently, it will be difficult to
+decouple the influence of users on the outcome and study such systems
+in isolation~\cite{interactiveMachineLearningExperience}.
 
-Given a set
-of models and goals, the final problem is actually optimising a model that precisely describes the user needs. There are many
-methods for optimisation, including
-UCT~\cite{ECML:Kocsis+Szepesvari:2006}, gradient
-methods~\cite{dimitrakakis:gbrl,ghavamzadeh:bpga,knowgrad}. The challenge in this project will be to use these techniques in a continuous setting; learning will trigger and drive the specific adaptation and/or evolution that will bring actual value to the system.
+
+Feedback can be given directly through active
+learning~\cite{ActiveLearning} algorithms, which can actively demand
+users for input when necessary.  They will be exploited to
+interactively query the user to obtain the desired output to take
+decisions. When objective metrics are available to evaluate system
+performance, reinforcement learning will be used to allow the software
+to learn fully autonomously.  However, whenever engineers are not able
+to specify such a metric, we will investigate preference
+elicitation~\cite{rothkopf:peirl:ecml:2011} and inverse reinforcement
+learning~\cite{uai:irl,Choi:NPBIRL:nips2012} to infer it from human
+data. 
+
+On the modelling side, these techniques can be married with other
+advances in machine learning and statistics, such as semi-supervised
+models, deep learning and approximate Bayesian computation. Given a
+set of models and goals, the final problem is actually optimising the software in a way that satisfies the users' needs. There are many methods
+for optimisation, including UCT~\cite{ECML:Kocsis+Szepesvari:2006},
+gradient
+methods~\cite{dimitrakakis:gbrl,ghavamzadeh:bpga,knowgrad}. The
+challenge in this project will be to use these techniques in a
+continuous setting; learning will trigger and drive the specific
+adaptation and/or evolution that will bring actual value to the
+system.
+
+\noindent {\bf Concrete outcomes}:
+ 
+\noindent {\bf O1.1} - Machine learning techniques that, working in continuous interactions with users, will enable measuring the value that an evolution or adaptation deliver;\\ 
+\noindent {\bf O1.2} - Metrics to identify and prioritize new developments and/or changes that need to be performed in order to increase the customer value.
+%Identification and prioritization of new developments or changes that need to be made on the system according to the measure of value. 
+
+\vspace{.2cm}
+\noindent{\bf WP2 - Theoretical foundations to %Evolution framework to 
+effectively predict consequences of potentially applied changes.}  
+
+%Self-adaptation to changes detected during operations can go a long way towards improving the flexibility and robustness of a complex software system, but it cannot cover all situations that require changes over the system's entire lifetime.
+%Specifically, changes may require adaptations that significantly affect many components at once, thus reducing the flexibility of the system which suddenly has to operate at the boundaries of its design envelope.
+%Monitored changes may also indirectly suggest to engineers new features that the system should be equipped with, or indirectly expose defective or otherwise unsatisfactory design choices.
+%The goal of this workpackage is therefore to seamlessly complement, and extend, self-adaptation with support for continuous, incremental, and flexible \emph{changes}, in a way that supports the \emph{long-term evolution} of complex software systems.
+\noindent The main objective of this WP is to provide theoretical foundations to %conceive and develop an evolution framework to 
+support an agile development process with frequent releases integrated with lightweight, incremental verification.  The theoretical foundation should permit the %idea is to 
+reuse %as much as possible 
+of the results of a previous verification step and accommodate within the verification procedure the changes  occurring in a new version.
+The theoretical foundations %framework 
+will enable the development of techniques to measure and visualize the impact of changes in 
+%support developers by providing means to check the impact of changes in 
+ requirements,  architecture descriptions ,and design of the system. This will support developers in a seamless and tool-supported informed process of revision and evolution.
+The seamless integration of automated verification techniques will promote a verification-driven development process in which the verification techniques regulate and define the boundaries of evolution. 
+
+The theoretical foundations will investigate %evolution framework will be based on 
+the use of assume-guarantee reasoning~\cite{Pnueli1989} to represent the functionalities of the system. %deal with functional aspects of the system. 
+The idea is to extract a syntactic representation of the functionalities of the system (like a grammar) from the architecture description of the system. %It can be exploited to %will provide theoretical foundations based on 
+%provide a syntactic representation of a system (like a grammar) as can be for instance . 
+(De-)Composition operators are then used to define ``breaking'' points of adaptation, i.e., they define a decomposition of the system conceived to support evolution. This syntactic decomposition of the system will be then enhanced with semantic annotation defining the properties the single part of the system guarantees when operating within an environment satisfying well defined properties.
+
+%
+%
+%In particular this 
+%WP will focus on the evolvability of the system, i.e. on the ability of a system to accommodate efficiently to changes.
+%%provide reasoning models for non-functional properties (NFPs) in respect to changes applied on SA, i.e. in relation the system evolvability. 
+%Evolvability is a complex property that comprises a number of subproperties that are in their turn defined by a number of characteristics that can be measurable~\cite{Mens2001}. %For example modularity is a subproperty of evolvability, and modularity can be expressed by cohesion and encapsulation metrics.  When a system is exposed to certain change, these sub-characteristics may be changed which will have impact on evolvability. 
+%Although evolvability was a research subject in many years, a main challenge is still remaining, i.e. how to maintain evolvability. 
+%To solve this challenge, we will develop methods for change analysis for systems built of components that are specified with a number of non-functional properties on the interface (architectural) level and dynamic (behavioral) level. The analysis will focus on co-evolution of a system and particular properties: 
+%For a given system $S$ and environment $E$, and a set of system properties $P$, applied $SA$ changes lead to $S^\prime$ or/and $E^\prime$, and $P^\prime$ where $S^\prime$$=$$S$$+$$\Delta$$S$, $E^\prime$$=$$E$$+$$\Delta$$E$, and $P^\prime$$=$$P$$+$$\Delta$$P$.  As a special case, we will provide methods for analysis whether a property $P$ is invariant w.r.t. a change $C$ for a given $S$. The changes are expressed as a) changes of the environment $E$ such as changes of boundary values of input/output parameters, resources, usage profile, and b) changes of the system $S$, such as updates of components, adding/removing components, updates of execution platform.
 
 \noindent {\bf Concrete outcomes}:
  
@@ -835,7 +888,7 @@ The PI has several industrial contacts, including: Ericsson AB (Staffan Ehnebom,
 The PI has also ongoing collaboration with, among others, Hans Hansson, Daniel Sundmark, and Jan Carlson (M\"alardalen University), Jakob Axelsson (RISE - SICS), Per Runesson (Lund University), Dimos Dimarogonas and Jana Tumova (KTH), Helena Holmstr\"om, Ulrik Eklund, and Romina Spalazzese (University of Malm\"o), Alberto Sangiovanni Vincentelli (EECS Berkeley),
 Alexander Romanovsky and John Fitzgerald (University of Newcastle), Jon Whittle (Monash University, Australia), Bran Selic (Malina Software Corp., Ottawa, Canada), Robert Nord (SEI CMU), Ian Gorton
 (Northeastern University, Seattle Campus), Rich Hillard (MIT), Jeff Kramer, Sebastian Uchitel, and Alessandra Russo (Imperial College), Andr\'as Pataricza (Budapest University of Technology and Economics), Philippe Kruchten (University of British Columbia), Patricia Lago (Vrije Universiteit Amsterdam), Paris Avgeriou (University of Groningen), Lars Grunske (University of Stuttgart), Antony Tang and Markus Lumpe (Swinburne University of Technology, Australia), Roberto Di Cosmo and Stefano Zacchiroli (Paris Diderot University), Paola Inverardi, Marika Di Benedetto, and the entire department of computer science and engineering, %etc. %Henry Muccini, Alfonso Pierantonio, Vittorio Cortellessa, Massimo Tivoli, etc. 
-(L'Aquila University, Italy), Antonia Bertolino, Felicita di Giandomenico and Stefania Gnesi (Italian National Research Council), Carlo Ghezzi, Luciano Baresi, Elisabetta Di Nitto and Raffaela Mirandola (Politecnico di Milano), and Alessandro Fantechi (University of Florence).
+(L'Aquila University, Italy), Antonia Bertolino, Felicita di Giandomenico and Stefania Gnesi (Italian National Research Council), and Carlo Ghezzi, Luciano Baresi, Elisabetta Di Nitto and Raffaela Mirandola (Politecnico di Milano). %, and Alessandro Fantechi (University of Florence).
 
 %\noindent {\bf Scientific advisory board:} To continuously ensure that the project directions will be appropriate, an international scientific advisory board will be appointed. %to advise the management board. %The scientific advisors will receive copies of project reports and progress updates, and will provide advises. % by email or in person (if convenient). %Advisors will be formally consulted annually ahead of the annual review meeting but may offer advice or request information at any time.
 %The scientific advisors who have {\em already agreed} to make up the advisory board and that {\em strongly support} this application %for the project 
