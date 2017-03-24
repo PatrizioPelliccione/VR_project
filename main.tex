@@ -38,6 +38,7 @@
 \usepackage[labelfont=bf]{caption} % Make figure numbering in captions bold
 %\usepackage[top=14mm,bottom=16mm,left=14mm,right=14mm]{geometry} % Reduce the size of the margin
 \usepackage[top=16.5mm,bottom=16.5mm,left=16.5mm,right=16.5mm]{geometry}
+
 %\usepackage[top=17mm,bottom=16mm,left=22mm,right=22mm]{geometry} % Reduce the size of the margin
 %\pagestyle{empty} % Remove page numbers
 
@@ -122,10 +123,10 @@
 %	SPECIFIC AIMS
 %----------------------------------------------------------------------------------------
 
-\vspace{-2.5cm}
+\vspace{-1.5cm}
 
 \section{Purpose and aims}\label{sec:purpose}
-\vspace{-.4cm}
+%\vspace{-.4cm}
  
 Software is becoming predominant in every  system in the world.
 %near future will exhibit levels of autonomy that
@@ -183,11 +184,11 @@ In all cases, it supports the automatic deployment of changes in production syst
 
 The overall research challenge of \name{} is to combine continuous software evolution and (self-)adaptation as required by near future smart systems, and to
 bridge the gap between ``agile'' methods focused on efficiency and formal methods towards the definition of {\bf an evidence-based and verification-driven software development}. This overall challenge will be addressed through the following research challenges:
-\vspace{-.2cm}
+%\vspace{-.2cm}
 \begin{enumerate}
-\item {\bf Evidence-based} - Hot to validate any new development or change to the system from the perspective of the value that it delivers?\vspace{-.2cm}
-\item {\bf Continuous evolution} - How to help developers to effectively predict consequences of potentially applied changes?\vspace{-.2cm}
-\item {\bf Self-adaptation} - How to achieve that the system itself maintains the architectural integrity and ensures its quality despite adaptation?\vspace{-.2cm}
+\item {\bf Evidence-based} - Hot to validate any new development or change to the system from the perspective of the value that it delivers? %\vspace{-.2cm}
+\item {\bf Continuous evolution} - How to help developers to effectively predict consequences of potentially applied changes? %\vspace{-.2cm}
+\item {\bf Self-adaptation} - How to achieve that the system itself maintains the architectural integrity and ensures its quality despite adaptation? %\vspace{-.2cm}
 \item {\bf Combining evolution and adaptation} - How to combine the feedback loops of continuous evolution with the autonomic control loops of self-adaptation?
 %enable maintaining alignment of all lifecycle artifacts in a continuously evolving system?
 \end{enumerate}
@@ -202,10 +203,10 @@ bridge the gap between ``agile'' methods focused on efficiency and formal method
 
 
 
-\vspace{-.5cm}
+\vspace{-.3cm}
 
 \section{Survey of the field}\label{sec:sota}
-\vspace{-.4cm}
+%\vspace{-.4cm}
 
 The literature overview is organized in sections that focus on different angles of works related to \name{}. We will describe works related to evidence-based software engineering, interactive machine learning (our strategy to learn and validate value of evolutions and changes), software evolution, and self-adaptive systems. %For these aspects we provide an overview of state of the art. 
 
@@ -268,8 +269,8 @@ that add real value to customers.
 
 \noindent {\em \underline{Contribution beyond the state of the art}}:  
 Most of the approaches of value-based software
-engineering exploit customers (i.e. humans) to identify the most promising solution, according to a defined value function.
-In the context of smart systems, new methodologies are needed in order to select the best solution according to a multi-dimensional notion of value. Our strategy is
+engineering exploit customers (i.e. humans) to identify the most promising solution, according to their notion of value.
+In the context of smart systems, new methodologies are needed in order to enable systems to autonomously select the best solution according to a multi-dimensional notion of value. Our strategy is
 to investigate interactive machine learning techniques that will enable smart systems to select their optimal evolution and/or adaptation strategy.
 
 
@@ -425,7 +426,7 @@ In this project, we describe a method that combines machine learning for decisio
 
 
 \section{Project description}
-\vspace{-.4cm}
+%\vspace{-.4cm}
 
 
 To address the research challenges in Section 1, we organize the project into four workpackages, one for each research challenge.
@@ -436,7 +437,7 @@ To address the research challenges in Section 1, we organize the project into fo
 \noindent The overall goal of this WP is to develop new interactive
 machine learning based approaches to enable the evaluation and
 understanding of the value a new increment or change brings to the
-system.  Specifically, we will interactive machine learning approaches
+system.  Specifically, we will develop interactive machine learning approaches
 that include users in the learning
 loop~\cite{interactiveMachineLearning}.  These include reinforcement
 learning~\cite{suba,BertsekasTsitsiklis:NDP} and active
@@ -502,7 +503,7 @@ The theoretical foundations will investigate %evolution framework will be based 
 the use of assume-guarantee reasoning~\cite{Pnueli1989} to represent the functionalities of the system. %deal with functional aspects of the system. 
 The idea is to extract a syntactic representation of the functionalities of the system (like a grammar) from the architecture description of the system. %It can be exploited to %will provide theoretical foundations based on 
 %provide a syntactic representation of a system (like a grammar) as can be for instance . 
-(De-)Composition operators are then used to define ``breaking'' points of adaptation, i.e., they define a decomposition of the system conceived to support evolution. This syntactic decomposition of the system will be then enhanced with semantic annotation defining the properties the single part of the system guarantees when operating within an environment satisfying well defined properties.
+(De-)Composition operators are then used to define ``breaking'' points of adaptation, i.e., they define a decomposition of the system conceived to support evolution. This syntactic decomposition of the system will be then enhanced with semantic annotation defining the properties the single part of the system guarantees when operating within an environment satisfying well-defined properties.
 
 %
 %
@@ -514,35 +515,35 @@ The idea is to extract a syntactic representation of the functionalities of the 
 %To solve this challenge, we will develop methods for change analysis for systems built of components that are specified with a number of non-functional properties on the interface (architectural) level and dynamic (behavioral) level. The analysis will focus on co-evolution of a system and particular properties: 
 %For a given system $S$ and environment $E$, and a set of system properties $P$, applied $SA$ changes lead to $S^\prime$ or/and $E^\prime$, and $P^\prime$ where $S^\prime$$=$$S$$+$$\Delta$$S$, $E^\prime$$=$$E$$+$$\Delta$$E$, and $P^\prime$$=$$P$$+$$\Delta$$P$.  As a special case, we will provide methods for analysis whether a property $P$ is invariant w.r.t. a change $C$ for a given $S$. The changes are expressed as a) changes of the environment $E$ such as changes of boundary values of input/output parameters, resources, usage profile, and b) changes of the system $S$, such as updates of components, adding/removing components, updates of execution platform.
 
-\noindent {\bf Concrete outcomes}:
- 
-\noindent {\bf O1.1} - Machine learning techniques that, working in continuous interactions with users, will enable measuring the value that an evolution or adaptation deliver;\\ 
-\noindent {\bf O1.2} - Metrics to identify and prioritize new developments and/or changes that need to be performed in order to increase the customer value.
-%Identification and prioritization of new developments or changes that need to be made on the system according to the measure of value. 
-
-\vspace{.2cm}
-\noindent{\bf WP2 - Theoretical foundations to %Evolution framework to 
-effectively predict consequences of potentially applied changes.}  
-
-%Self-adaptation to changes detected during operations can go a long way towards improving the flexibility and robustness of a complex software system, but it cannot cover all situations that require changes over the system's entire lifetime.
-%Specifically, changes may require adaptations that significantly affect many components at once, thus reducing the flexibility of the system which suddenly has to operate at the boundaries of its design envelope.
-%Monitored changes may also indirectly suggest to engineers new features that the system should be equipped with, or indirectly expose defective or otherwise unsatisfactory design choices.
-%The goal of this workpackage is therefore to seamlessly complement, and extend, self-adaptation with support for continuous, incremental, and flexible \emph{changes}, in a way that supports the \emph{long-term evolution} of complex software systems.
-\noindent The main objective of this WP is to provide theoretical foundations to %conceive and develop an evolution framework to 
-support an agile development process with frequent releases integrated with lightweight, incremental verification.  The theoretical foundation should permit the %idea is to 
-reuse %as much as possible 
-of the results of a previous verification step and accommodate within the verification procedure the changes  occurring in a new version.
-The theoretical foundations %framework 
-will enable the development of techniques to measure and visualize the impact of changes in 
-%support developers by providing means to check the impact of changes in 
- requirements,  architecture descriptions ,and design of the system. This will support developers in a seamless and tool-supported informed process of revision and evolution.
-The seamless integration of automated verification techniques will promote a verification-driven development process in which the verification techniques regulate and define the boundaries of evolution. 
-
-The theoretical foundations will investigate %evolution framework will be based on 
-the use of assume-guarantee reasoning~\cite{Pnueli1989} to represent the functionalities of the system. %deal with functional aspects of the system. 
-The idea is to extract a syntactic representation of the functionalities of the system (like a grammar) from the architecture description of the system. %It can be exploited to %will provide theoretical foundations based on 
-%provide a syntactic representation of a system (like a grammar) as can be for instance . 
-(De-)Composition operators are then used to define ``breaking'' points of adaptation, i.e., they define a decomposition of the system conceived to support evolution. This syntactic decomposition of the system will be then enhanced with semantic annotation defining the properties the single part of the system guarantees when operating within an environment satisfying well defined properties.
+%\noindent {\bf Concrete outcomes}:
+% 
+%\noindent {\bf O1.1} - Machine learning techniques that, working in continuous interactions with users, will enable measuring the value that an evolution or adaptation deliver;\\ 
+%\noindent {\bf O1.2} - Metrics to identify and prioritize new developments and/or changes that need to be performed in order to increase the customer value.
+%%Identification and prioritization of new developments or changes that need to be made on the system according to the measure of value. 
+%
+%\vspace{.2cm}
+%\noindent{\bf WP2 - Theoretical foundations to %Evolution framework to 
+%effectively predict consequences of potentially applied changes.}  
+%
+%%Self-adaptation to changes detected during operations can go a long way towards improving the flexibility and robustness of a complex software system, but it cannot cover all situations that require changes over the system's entire lifetime.
+%%Specifically, changes may require adaptations that significantly affect many components at once, thus reducing the flexibility of the system which suddenly has to operate at the boundaries of its design envelope.
+%%Monitored changes may also indirectly suggest to engineers new features that the system should be equipped with, or indirectly expose defective or otherwise unsatisfactory design choices.
+%%The goal of this workpackage is therefore to seamlessly complement, and extend, self-adaptation with support for continuous, incremental, and flexible \emph{changes}, in a way that supports the \emph{long-term evolution} of complex software systems.
+%\noindent The main objective of this WP is to provide theoretical foundations to %conceive and develop an evolution framework to 
+%support an agile development process with frequent releases integrated with lightweight, incremental verification.  The theoretical foundation should permit the %idea is to 
+%reuse %as much as possible 
+%of the results of a previous verification step and accommodate within the verification procedure the changes  occurring in a new version.
+%The theoretical foundations %framework 
+%will enable the development of techniques to measure and visualize the impact of changes in 
+%%support developers by providing means to check the impact of changes in 
+% requirements,  architecture descriptions, and design of the system. This will support developers in a seamless and tool-supported informed process of revision and evolution.
+%The seamless integration of automated verification techniques will promote a verification-driven development process in which the verification techniques regulate and define the boundaries of evolution. 
+%
+%The theoretical foundations will investigate %evolution framework will be based on 
+%the use of assume-guarantee reasoning~\cite{Pnueli1989} to represent the functionalities of the system. %deal with functional aspects of the system. 
+%The idea is to extract a syntactic representation of the functionalities of the system (like a grammar) from the architecture description of the system. %It can be exploited to %will provide theoretical foundations based on 
+%%provide a syntactic representation of a system (like a grammar) as can be for instance . 
+%(De-)Composition operators are then used to define ``breaking'' points of adaptation, i.e., they define a decomposition of the system conceived to support evolution. This syntactic decomposition of the system will be then enhanced with semantic annotation defining the properties each single part of the system guarantees when operating within an environment satisfying well defined properties.
 
 %
 %
@@ -665,10 +666,10 @@ An initial work in this direction is described in~\cite{Bosch2016}. Bosch is one
 
 
 
-\vspace{-.3cm}
+\vspace{-.1cm}
 
 \subsection{Significance and Relevance}
-\vspace{-.2cm}
+%\vspace{-.2cm}
 
 \noindent {\bf Significance.} 
 Over the last years with the advent of agile methods as a first step, software engineering is moving towards continuous development and deployment of software. Finally, the true potential of software is on the verge of being realized. However, an essential challenge remains: Traditional software engineering employs processes, mostly performed by humans, but this is no longer applicable in a continuous context. Here, we need to rely much more on software architecture as the means for ensuring system properties, but we lack a theoretical foundation. The goal of this project framework is to build the foundational pillars for an evidence-based 
@@ -690,7 +691,7 @@ The modern infrastructure (Internet, Internet of Things, cloud-computing infrast
 
 \noindent {\bf Dissemination.} We will disseminate the results to the scientific community via publications at top-level venues, like: i) Journals: IEEE Transactions on Dependable and Secure Computing (TDSC), IEEE Transaction on Software Engineering (TSE); 
 ii) Magazines: Communications of the ACM, IEEE Software; Conferences: 
-International Conference on Software Engineering (ICSE);  International Conference on Foundations of Software Engineering (FSE); International Conference 
+International Conference on Software Engineering (ICSE);  International Conference on Foundations of Software Engineering (FSE); International Conference on Software Architecture (ICSA); International Conference 
 Automated Software Engineering (ASE); International Conference on Dependable Systems and Networks (DSN); International Symposium on Software Reliability Engineering (ISSRE).
 %IEEE Symposium on Security and Privacy, 
 %Usenix Security Symposium, Privacy Enhancing Technologies Symposium (PETS), 
@@ -700,13 +701,13 @@ Automated Software Engineering (ASE); International Conference on Dependable Sys
 %
 %\noindent {\bf Impact on industry.} 
 
-\vspace{-.3cm}
+%\vspace{-.3cm}
 
 
 
-%\vspace{-.1cm}
+\vspace{-.1cm}
 \subsection{Preliminary results}\label{sec:preliminaryResults}
-\vspace{-.2cm}
+%\vspace{-.2cm}
 %\noindent {\em \underline{Properties specification languages and specification patterns} (WP1)}:  
 %The PI has a large and consolidated experience in specification languages and patterns. Property Sequence Charts (PSC)~\cite{AIP07} is a graphical language that has been conceived to facilitate the non trivial and error prone task of specifying
 %temporal properties correctly and without mathematical expertise. 
@@ -750,7 +751,7 @@ The work in~\cite{TSE2015} presents a unified catalogue that collects the existi
 %newly identified patterns. The 
 the result is a single, comprehensive and coherent, property specification
 pattern catalogue. This work offers also a natural language front-end, a structured English grammar, that maps patterns to a temporal logic of choice.
-Moreover, a wizard tool makes possible the specification of temporal properties for end-user without expertise in mathematics or logic. The approach is currently under evaluation at Bosch (Munich) as an instrument for specifying missions for robots. In fact, planners used by Bosch start from a specification expressed in LTL or MTL, and my approach promises to greatly facilitate the specification of missions. 
+Moreover, a wizard tool makes possible the specification of temporal properties for end-user without expertise in mathematics or logic. The approach is currently under evaluation at Bosch (Munich) as an instrument for specifying missions for robots. In fact, planners used by Bosch start from a specification expressed in LTL or MTL, and this approach proposed by the PI promises to greatly facilitate the specification of missions. 
 %We are currently investigating the use of this work for specifying missions of robots within the EU project Co4Robots (\url{http://www.co4robots.eu/}).
 %There is an ongoing experimentation with an automotive company in Germany to exploit this work for the specification and decomposition of safety requirements for highly automated driving systems.
 
@@ -766,10 +767,11 @@ The PI's work in modelling and verifying adaptable and self-adaptable systems co
 %and of incremental verification~\cite{Pelliccione20082237} and assume-guarantee reasoning~\cite{IPT09} in order to cope with the state explosion problem. 
 Currently the PI is working on runtime verification approaches in the domain of cooperative multi-robot systems in the context of the EU project Co4Robots ({\small \url{http://www.co4robots.eu/}}), in the domain of 
 autonomous multicopters~\cite{ASE2015}, and in the automotive domain within the WASP project ({\small \url{wasp-sweden.org}}). This project will be profitably connected with these projects. %Moreover, results of a preliminary study about predictive monitoring is under revision to a top journal (already submitted improvements according to a major revision).
+
 Moreover, Jan Bosch will bring expertise in development processes and value-based software engineering, Ivica Crnkovic in component-based software engineering and evolution, and Christos Dimitrakakis in machine learning. 
 
 \subsection{Timetable and organization}
-\vspace{-.2cm}
+%\vspace{-.2cm}
 The \name{} project will be active during 4 years, and the group will consist of the PI, Patrizio Pelliccione (PP), working
 25\% on the project, 1 PhD student working 80\%  for 4 years (to be recruited) and three participating researchers, namely Jan Bosch (JB), Ivica Crnkovic (IC), and Christos Dimitrakakis (CD) working 10\% each during specific phases of the project.  PP will lead the project and each WP and will ensure coherence and consistency among the different parts of the project. JB will mainly contribute to WP4, IC to WP2, and CD to WP1. There will be weekly project meetings to exchange ideas and discuss progresses.
 
@@ -877,10 +879,10 @@ Finally,  WP4 (M12-M48) will run for the last three years of the project, even t
 
 
 
-\vspace{-.4cm}
+\vspace{-.1cm}
 
 \subsection{International and National Collaborations }\label{sec:collaboration}
-\vspace{-.3cm}
+%\vspace{-.3cm}
 The PI is an associate professor at the University of Gothenburg (GU)\footnote{Before moving to Sweden, the PI worked at the University of L'Aquila, Italy, within the group led by Paola Inverardi, group internationally recognized for the application of rigorous methods to software production to improve software quality.}, Computer Science and Engineering department. 
 %The group is internationally recognized for their excellence in software engineering. 
 %The group has also consolidated collaboration with companies, as testified by the software center initiative ({\small \url{http://www.software-center.se/}}). 
@@ -921,17 +923,17 @@ Ian Gorton
 %%
 
 
-\vspace{-.4cm}
+\vspace{-.1cm}
 
 \subsection{Other Grants}
-\vspace{-.3cm}
+%\vspace{-.3cm}
 PP is Principal investigator for University of Gothenburg of the H2020-ICT-2016-2017, ``{\em Achieving Complex Collaborative Missions via Decentralized Control and Coordination of Interacting Robots}'' (Co4Robots) - project started on January 2017. 
 PP is a research leader of the Wallenberg Autonomous Systems Program (WASP) research program ({\small \url{http://wasp-sweden.org/}}) and he is leading two projects. The program addresses research on autonomous systems and software. %acting in collaboration with humans, adapting to their environment through sensors, information and knowledge, and forming intelligent systems-of-systems. %Software is the main enabler in autonomous systems, and is an integrated research theme of the program. 
 %Each project is financing a PhD student which is supervised by PP. 
 PP will ensure co-operation between this project and both Co4Robots and the WASP research program.
 
 PP is also involved in two FFI Vinnova projects, both coordinated by Volvo Car Group, called Next Generation Electrical Architecture (NGEA) and Next Generation Electrical Architecture 2 (NGEA2). The project aims at providing directives for the electrical architecture of future vehicles. 
-%The PI is also involved with the Bright project ({\small \url{http://cis.mak.ac.ug/sida-ict4d/}}), building research capacity in innovative information and communication technologies for development (ICT4D) for sustainable socio-economic growth in Uganda.
+The PI is also involved with the Bright project ({\small \url{http://cis.mak.ac.ug/sida-ict4d/}}), building research capacity in innovative information and communication technologies for development (ICT4D) for sustainable socio-economic growth in Uganda. 
 The PI is also an active researcher within the software center initiative ({\small \url{www.software-center.se}}).
 Finally, while working in the University of L'Aquila, the PI has been involved (from proposal writing till project accomplishment) in 4 successful EU projects and 5 successful Italian projects. %He also worked on the writing and submission of  2 EU proposals and 1 Italian project proposal that have been accepted and financed after he moved to Sweden.
 
@@ -941,7 +943,7 @@ Finally, while working in the University of L'Aquila, the PI has been involved (
 %%Besides, he is currently a co-applicant of two other Swedish-funded projects: (i) the VR framework project {\it Reliable Multilingual Digital Communication: Methods and Applications} (2013-2017), and (ii) the SSF grant {\it Data Driven Secure Business Intelligence} (2013-2017).
 %Schneider is also applying for a VR project research grant with title {\it PolUser: Rich User-Controlled Privacy Policies}. The project is about privacy policies and there is no overlapping with this proposal. Schneider is also a co-applicant in the VR proposal {\it Unified Static and Runtime Verification of Distributed Software} aiming at the theoretical foundations of combining static and runtime verification; there is no overlapping with this application.
 
-\vspace{-.3cm}
+\vspace{-.1cm}
 
 
 %
