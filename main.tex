@@ -108,7 +108,7 @@
 %\pagestyle{empty}
 %\vspace{-2cm}
 %\\
-\title{\vspace{-2cm}Evidence-based Software Evolution and Adaptation \\of Smart Systems\\ \vspace{.2cm} {\normalsize {\bf Applicant}: Patrizio Pelliccione - University of Gothenburg}\\ \vspace{-.2cm} {\normalsize {\bf Participating researchers}: Jan Bosch, Ivica Crnkovic, and Christos Dimitrakakis - Chalmers}}
+\title{\vspace{-2cm}{\color{blue}EVO\&ADA --} Evidence-based Software Evolution and Adaptation of Smart Systems\\ \vspace{.2cm} {\normalsize {\bf Applicant}: Patrizio Pelliccione - University of Gothenburg}\\ \vspace{-.2cm} {\normalsize {\bf Participating researchers}: Jan Bosch, Ivica Crnkovic, and Christos Dimitrakakis - Chalmers}}
 %\title{\vspace{-2cm}SoS-Reliance: Systems-of-Systems Reliance\\ \vspace{-.2cm} {\normalsize Patrizio Pelliccione, University of Gothenburg}}
 
 \renewcommand{\footskip}{20pt}
@@ -123,12 +123,12 @@
 %	SPECIFIC AIMS
 %----------------------------------------------------------------------------------------
 
-\vspace{-1.5cm}
+\vspace{-2.5cm}
 
 \section{Purpose and aims}\label{sec:purpose}
 %\vspace{-.4cm}
  
-Software is becoming predominant in every  system in the world.
+{\color{blue}Today, software is becoming predominant in every  system. Software is also a means to make systems smart, and continuously improvable.}
 %near future will exhibit levels of autonomy that
 %will put new demands on the engineering of such systems
 %One of the characteristics of software systems of today and of the near future is their continuous and rapid change~\cite{Mens2008}. 
@@ -155,7 +155,7 @@ behavior~\cite{Bosch2016}.
 %Further, by monitoring the system's performance and the users' reactions to new functionality, it is possible to improve the software in short feedback cycles. 
 %Additionally, users can directly be involved in the adaptation of services for their individual needs, and even change the system directly to fit their needs. 
 
-DevOps is increasingly attracting the attention of development and release teams looking to increase the speed of application delivery~\cite{Bass2015}.
+ DevOps\footnote{{\color{blue}DevOps is a term used to refer to a set of practices that emphasize the collaboration and communication of both software developers and IT professionals while automating the process of software delivery and infrastructure changes.}} is increasingly attracting the attention of development and release teams looking to increase the speed of application delivery~\cite{Bass2015}.
 %Reducing the time between committing a change to a system and the change being placed into normal production, while ensuring high quality is one of the key ambition of DevOps~\cite{Bass2015}.
 A study performed by Puppet Labs in 2015~\cite{PuppetLab2015} indicates that organizations using DevOps practices -- which require close and frequent interactions among software engineering, quality assurance, and operations teams -- ship code 30 times faster (and complete deployments 8,000 times faster), have 50\% fewer failed deployments, and restore service 12 times faster than organizations who stick to more traditional methods.
 Practices such as DevOps are becoming increasing popular in small and large companies including Amazon\footnote{Amazon deploys new software to production every 11.6 seconds on average in May of 2011, \url{https://goo.gl/fm6cuO}},  %\url{https://www.youtube.com/watch?v=dxk8b9rSKOo}}, 
@@ -177,7 +177,7 @@ With continuously changing software, new challenges appear – {\bf how to effic
 %\name{} (Data-driven Evolution and Adaptation) 
 %The project
 \name{} (Evidence-based Software Evolution and Adaptation of Smart Systems) 
-aims at providing concrete answers to this pressing question. The project's overall strategy is to continuously collect data on the performance and behavior of the system and the elements it interacts with, to learn models and properties from such collected data, and to support change. % based on such learned information.
+aims at providing concrete answers to this pressing question {\color{blue} by providing support for rapid changes at development and runtime}. The project's overall strategy is to continuously collect data on the performance and behavior of the system and the elements it interacts with, to learn models and properties from such collected data, and to support change. % based on such learned information.
 Change can be performed autonomously at runtime (self-adaptation), or be implemented by human developers (continuous evolution); in both cases, the decision to change is based on the information previously learned and on an analysis that assesses the impact of the new functionality in a predictive fashion. %, according to evolved requirements. 
 Supporting changing evolution is not limited to running software, but includes all sorts of software-related artifacts, such as requirements, architecture, and test cases.
 In all cases, it supports the automatic deployment of changes in production systems with a firm assessment of correctness, robustness, and other qualities of the system in operation.
@@ -186,9 +186,9 @@ The overall research challenge of \name{} is to combine continuous software evol
 bridge the gap between ``agile'' methods focused on efficiency and formal methods towards the definition of {\bf an evidence-based and verification-driven software development}. This overall challenge will be addressed through the following research challenges:
 %\vspace{-.2cm}
 \begin{enumerate}
-\item {\bf Evidence-based} - Hot to validate any new development or change to the system from the perspective of the value that it delivers? %\vspace{-.2cm}
-\item {\bf Continuous evolution} - How to help developers to effectively predict consequences of potentially applied changes? %\vspace{-.2cm}
-\item {\bf Self-adaptation} - How to achieve that the system itself maintains the architectural integrity and ensures its quality despite adaptation? %\vspace{-.2cm}
+\item {\bf Evidence-based} - How to validate any new development or change to the system from the perspective of the value that it delivers? \vspace{-.2cm}
+\item {\bf Continuous evolution} - How to help developers to effectively predict consequences of potentially applied changes? \vspace{-.2cm}
+\item {\bf Self-adaptation} - How to achieve that the system itself maintains the architectural integrity and ensures its quality despite adaptation? \vspace{-.2cm}
 \item {\bf Combining evolution and adaptation} - How to combine the feedback loops of continuous evolution with the autonomic control loops of self-adaptation?
 %enable maintaining alignment of all lifecycle artifacts in a continuously evolving system?
 \end{enumerate}
@@ -203,10 +203,10 @@ bridge the gap between ``agile'' methods focused on efficiency and formal method
 
 
 
-\vspace{-.3cm}
+\vspace{-.5cm}
 
 \section{Survey of the field}\label{sec:sota}
-%\vspace{-.4cm}
+\vspace{-.2cm}
 
 The literature overview is organized in sections that focus on different angles of works related to \name{}. We will describe works related to evidence-based software engineering, interactive machine learning (our strategy to learn and validate value of evolutions and changes), software evolution, and self-adaptive systems. %For these aspects we provide an overview of state of the art. 
 
@@ -284,11 +284,11 @@ learning and systems of intelligent agents.
 %computing power have catapulted methods rooted in probability and game
 %theory to applications in the real world, such as robotics, image
 %recognition, translation, automatic control and advertising.
-The problem of sequential decision making under uncertainty is of high importance for smart systems. 
+\ivica{\ugh{(describing here system collaboration (swarms?) is unexpected. this is still a specif case, and it should either be defined as a scope of the project, or on some way motivated, or removed)}The problem of sequential decision making under uncertainty is of high importance for smart systems. 
 Often smart systems have to collaborate and interact with other systems to solve joint works. It involves three
 different aspects: i) agreeing on a joint action; ii) learning from experience
 while trying to solve the task; and iii) actually formulating detailed plans, communicating information and
-coordinating. The problem of making sequential decisions under uncertainty is of
+coordinating.} The problem of making sequential decisions under uncertainty is of
 particular interest in the field of reinforcement
 learning~\cite{suba,BertsekasTsitsiklis:NDP}. In recent year, advances
 in that field with models based on deep neural
@@ -308,10 +308,10 @@ increases exponentially with the number of agents. However, under
 certain assumptions it can be shown that co-operative problems can be
 solved efficiently~\cite{brammert:duct:jair:2014}. 
 %, even under constraints, in a static setting~\cite{brammert:duct:jair:2014}.
-In this project we aim at proposing innovative interactive machine learning~\cite{interactiveMachineLearning} approaches able to %provide   
+\ivica{\ugh{(so far too abstract - some details should be added)} In this project we aim at proposing innovative interactive machine learning~\cite{interactiveMachineLearning} approaches able to %provide   
 %users with continuous feedback about the effects of the policies they specified
 %and at the same time to 
-continuously learn about the actual value a new development or change delivers. %By exploiting also the knowledge acquired via interactions of %with 
+continuously learn about the actual value a new development or change delivers}. %By exploiting also the knowledge acquired via interactions of %with 
 %similar users
 %the proposed approaches  will be able to continuously refine, retune and improve the privacy policy specifications. 
 %It is important to note that interaction cycles in interactive machine
@@ -476,7 +476,7 @@ adaptation and/or evolution that will bring actual value to the
 system.
 
 \noindent {\bf Concrete outcomes}:
- 
+ \ivica{\ugh{here it is unclear who are the users (end-users, developers) phase (development-, run-time), and which values will be taken into account}}\\
 \noindent {\bf O1.1} - Machine learning techniques that, working in continuous interactions with users, will enable measuring the value that an evolution or adaptation deliver;\\ 
 \noindent {\bf O1.2} - Metrics to identify and prioritize new developments and/or changes that need to be performed in order to increase the customer value.
 %Identification and prioritization of new developments or changes that need to be made on the system according to the measure of value. 
@@ -496,7 +496,7 @@ of the results of a previous verification step and accommodate within the verifi
 The theoretical foundations %framework 
 will enable the development of techniques to measure and visualize the impact of changes in 
 %support developers by providing means to check the impact of changes in 
- requirements,  architecture descriptions ,and design of the system. This will support developers in a seamless and tool-supported informed process of revision and evolution.
+ requirements,  architecture descriptions, and design of the system. This will support developers in a seamless and tool-supported informed process of revision and evolution\ivica{\ugh{is a tool development also planned?}}.
 The seamless integration of automated verification techniques will promote a verification-driven development process in which the verification techniques regulate and define the boundaries of evolution. 
 
 The theoretical foundations will investigate %evolution framework will be based on 
@@ -620,7 +620,7 @@ we aim at performing
 partial proofs %, % before deployment, 
 based on the partial information that is available off-line, and to exploit the result of the off-line verification after deployment. 
 %Similarly to WP2 we aim at exploiting assume guarantee as the instrument to annotate the partial information and the results of the verification performed offline.  
-Indeed, not all system properties might be decomposed to enable compositional and incremental verification. However, in this WP we will focus on system properties that can be decomposed. 
+Indeed, not all system properties might be decomposed to enable compositional and incremental verification. However, in this WP we will focus on system properties that can be decomposed \ivica{\ugh{such as...}}. 
 %We will also develop algorithms to automatically compute conditions to be exploited at run-time to understand precisely the effect of an adaptation to the affected part, as well as to the other parts of the system. 
 %These algorithms will be specialized to the selected abstraction level and to the composition operator. 
 %We will consider existing works, like the approach presented in~\cite{Cobleigh2003}. 
@@ -705,9 +705,9 @@ Automated Software Engineering (ASE); International Conference on Dependable Sys
 
 
 
-\vspace{-.1cm}
+\vspace{-.2cm}
 \subsection{Preliminary results}\label{sec:preliminaryResults}
-%\vspace{-.2cm}
+\vspace{-.2cm}
 %\noindent {\em \underline{Properties specification languages and specification patterns} (WP1)}:  
 %The PI has a large and consolidated experience in specification languages and patterns. Property Sequence Charts (PSC)~\cite{AIP07} is a graphical language that has been conceived to facilitate the non trivial and error prone task of specifying
 %temporal properties correctly and without mathematical expertise. 
@@ -746,7 +746,7 @@ For this reason the PI has conceived Property Sequence Charts (PSC)~\cite{AIP07}
 temporal properties correctly and without mathematical expertise. 
 PSC has been adopted by MSC Tracer ({\small \url{http://www.pragmadev.com/product/tracing.html}}) as notation used for expressing temporal properties. Also, the SDL-RT standard V2.3 ({\small \url{http://www.sdl-rt.org/}}) 
 integrates PSC to specify properties of interest. SDL-RT is an extension of the ITU SDL to express real time concepts
-and it has been conceived to specify and design real time and embedded software. Extensions of PSC permit to express also real-time (called TPSC~\cite{TPSC}) and probabilistic properties (called PTPSC~\cite{PTPSC}). 
+and it has been conceived to specify and design real time and embedded software. Extensions of PSC permit to express also real-time (TPSC~\cite{TPSC}) and probabilistic properties (PTPSC~\cite{PTPSC}). 
 The work in~\cite{TSE2015} presents a unified catalogue that collects the existing specification patterns, i.e., qualitative~\cite{dwyer-99}, real-time~\cite{Konrad2005}, and probabilistic specification patterns~\cite{Grunske2008}; % and combines them together with 40
 %newly identified patterns. The 
 the result is a single, comprehensive and coherent, property specification
@@ -768,10 +768,11 @@ The PI's work in modelling and verifying adaptable and self-adaptable systems co
 Currently the PI is working on runtime verification approaches in the domain of cooperative multi-robot systems in the context of the EU project Co4Robots ({\small \url{http://www.co4robots.eu/}}), in the domain of 
 autonomous multicopters~\cite{ASE2015}, and in the automotive domain within the WASP project ({\small \url{wasp-sweden.org}}). This project will be profitably connected with these projects. %Moreover, results of a preliminary study about predictive monitoring is under revision to a top journal (already submitted improvements according to a major revision).
 
-Moreover, Jan Bosch will bring expertise in development processes and value-based software engineering, Ivica Crnkovic in component-based software engineering and evolution, and Christos Dimitrakakis in machine learning. 
+Jan Bosch will bring expertise in development processes and value-based software engineering, Ivica Crnkovic in component-based software engineering and evolution, and Christos Dimitrakakis in machine learning. 
 
+\vspace{-.2cm}
 \subsection{Timetable and organization}
-%\vspace{-.2cm}
+\vspace{-.2cm}
 The \name{} project will be active during 4 years, and the group will consist of the PI, Patrizio Pelliccione (PP), working
 25\% on the project, 1 PhD student working 80\%  for 4 years (to be recruited) and three participating researchers, namely Jan Bosch (JB), Ivica Crnkovic (IC), and Christos Dimitrakakis (CD) working 10\% each during specific phases of the project.  PP will lead the project and each WP and will ensure coherence and consistency among the different parts of the project. JB will mainly contribute to WP4, IC to WP2, and CD to WP1. There will be weekly project meetings to exchange ideas and discuss progresses.
 
@@ -898,6 +899,7 @@ Ian Gorton
 (Northeastern University, Seattle), Rich Hillard (MIT), Jeff Kramer, Sebastian Uchitel, and Alessandra Russo (Imperial College), Andr\'as Pataricza (Budapest University), Philippe Kruchten (University of British Columbia), Patricia Lago (Vrije Universiteit Amsterdam), Paris Avgeriou (Univ. of Groningen), Lars Grunske (Univ. of Stuttgart), Antony Tang and Markus Lumpe (Swinburne University of Technology, Australia), Roberto Di Cosmo and Stefano Zacchiroli (Paris Diderot University), Paola Inverardi, Marika Di Benedetto, and the entire department of computer science and engineering, %etc. %Henry Muccini, Alfonso Pierantonio, Vittorio Cortellessa, Massimo Tivoli, etc. 
 (L'Aquila University, Italy), Antonia Bertolino, Felicita di Giandomenico and Stefania Gnesi (CNR-Italy), and Carlo Ghezzi, Luciano Baresi, Elisabetta Di Nitto and Raffaela Mirandola (Politecnico di Milano). %, and Alessandro Fantechi (University of Florence).
 
+{\color{blue}The co-applicants have established large networks both in the scientific communities and industry which will enable extensive cooperation on all levels mentioned above.}
 %\noindent {\bf Scientific advisory board:} To continuously ensure that the project directions will be appropriate, an international scientific advisory board will be appointed. %to advise the management board. %The scientific advisors will receive copies of project reports and progress updates, and will provide advises. % by email or in person (if convenient). %Advisors will be formally consulted annually ahead of the annual review meeting but may offer advice or request information at any time.
 %The scientific advisors who have {\em already agreed} to make up the advisory board and that {\em strongly support} this application %for the project 
 %are all of world-leading standing and their expertise covers all of the areas the project is involved in (alphabetically ordered):
