@@ -108,7 +108,7 @@
 %\pagestyle{empty}
 %\vspace{-2cm}
 %\\
-\title{\vspace{-2cm}{\color{blue}EVO\&ADA --} Evidence-based Software Evolution and Adaptation of Smart Systems\\ \vspace{.2cm} {\normalsize {\bf Applicant}: Patrizio Pelliccione - University of Gothenburg}\\ \vspace{-.2cm} {\normalsize {\bf Participating researchers}: Jan Bosch, Ivica Crnkovic, and Christos Dimitrakakis - Chalmers}}
+\title{\vspace{-2cm} EVO\&ADA -- Evidence-based Software Evolution and Adaptation of Smart Systems\\ \vspace{.2cm} {\normalsize {\bf Applicant}: Patrizio Pelliccione - University of Gothenburg}\\ \vspace{-.2cm} {\normalsize {\bf Participating researchers}: Jan Bosch, Ivica Crnkovic, and Christos Dimitrakakis - Chalmers}}
 %\title{\vspace{-2cm}SoS-Reliance: Systems-of-Systems Reliance\\ \vspace{-.2cm} {\normalsize Patrizio Pelliccione, University of Gothenburg}}
 
 \renewcommand{\footskip}{20pt}
@@ -128,7 +128,7 @@
 \section{Purpose and aims}\label{sec:purpose}
 %\vspace{-.4cm}
  
-{\color{blue}Today, software is becoming predominant in every  system. Software is also a means to make systems smart, and continuously improvable.}
+Today, software is becoming predominant in every  system. Software is also a means to make systems smart, and continuously improvable.
 %near future will exhibit levels of autonomy that
 %will put new demands on the engineering of such systems
 %One of the characteristics of software systems of today and of the near future is their continuous and rapid change~\cite{Mens2008}. 
@@ -155,7 +155,7 @@ behavior~\cite{Bosch2016}.
 %Further, by monitoring the system's performance and the users' reactions to new functionality, it is possible to improve the software in short feedback cycles. 
 %Additionally, users can directly be involved in the adaptation of services for their individual needs, and even change the system directly to fit their needs. 
 
- DevOps\footnote{{\color{blue}DevOps is a term used to refer to a set of practices that emphasize the collaboration and communication of both software developers and IT professionals while automating the process of software delivery and infrastructure changes.}} is increasingly attracting the attention of development and release teams looking to increase the speed of application delivery~\cite{Bass2015}.
+ DevOps\footnote{DevOps is a term used to refer to a set of practices that emphasize the collaboration and communication of both software developers and IT professionals while automating the process of software delivery and infrastructure changes.} is increasingly attracting the attention of development and release teams looking to increase the speed of application delivery~\cite{Bass2015}.
 %Reducing the time between committing a change to a system and the change being placed into normal production, while ensuring high quality is one of the key ambition of DevOps~\cite{Bass2015}.
 A study performed by Puppet Labs in 2015~\cite{PuppetLab2015} indicates that organizations using DevOps practices -- which require close and frequent interactions among software engineering, quality assurance, and operations teams -- ship code 30 times faster (and complete deployments 8,000 times faster), have 50\% fewer failed deployments, and restore service 12 times faster than organizations who stick to more traditional methods.
 Practices such as DevOps are becoming increasing popular in small and large companies including Amazon\footnote{Amazon deploys new software to production every 11.6 seconds on average in May of 2011, \url{https://goo.gl/fm6cuO}},  %\url{https://www.youtube.com/watch?v=dxk8b9rSKOo}}, 
@@ -177,7 +177,7 @@ With continuously changing software, new challenges appear – {\bf how to effic
 %\name{} (Data-driven Evolution and Adaptation) 
 %The project
 \name{} (Evidence-based Software Evolution and Adaptation of Smart Systems) 
-aims at providing concrete answers to this pressing question {\color{blue} by providing support for rapid changes at development and runtime}. The project's overall strategy is to continuously collect data on the performance and behavior of the system and the elements it interacts with, to learn models and properties from such collected data, and to support change. % based on such learned information.
+aims at providing concrete answers to this pressing question by providing support for rapid changes at development and runtime. The project's overall strategy is to continuously collect data on the performance and behavior of the system and the elements it interacts with, to learn models and properties from such collected data, and to support change. % based on such learned information.
 Change can be performed autonomously at runtime (self-adaptation), or be implemented by human developers (continuous evolution); in both cases, the decision to change is based on the information previously learned and on an analysis that assesses the impact of the new functionality in a predictive fashion. %, according to evolved requirements. 
 Supporting changing evolution is not limited to running software, but includes all sorts of software-related artifacts, such as requirements, architecture, and test cases.
 In all cases, it supports the automatic deployment of changes in production systems with a firm assessment of correctness, robustness, and other qualities of the system in operation.
@@ -208,7 +208,8 @@ bridge the gap between ``agile'' methods focused on efficiency and formal method
 \section{Survey of the field}\label{sec:sota}
 \vspace{-.2cm}
 
-The literature overview is organized in sections that focus on different angles of works related to \name{}. We will describe works related to evidence-based software engineering, interactive machine learning (our strategy to learn and validate value of evolutions and changes), software evolution, and self-adaptive systems. %For these aspects we provide an overview of state of the art. 
+The literature overview is organized in sections that focus on different angles of works related to \name{}. We will describe works related to evidence-based software engineering, %interactive machine learning (our strategy to learn and validate value of evolutions and changes),
+ software evolution, and self-adaptive systems. %For these aspects we provide an overview of state of the art. 
 
 \noindent {\bf Evidence-based engineering.} Already in 2003, Boehm pointed out that value-based software
 engineering is essential for companies to continuously validate
@@ -274,21 +275,23 @@ In the context of smart systems, new methodologies are needed in order to enable
 to investigate interactive machine learning techniques that will enable smart systems to select their optimal evolution and/or adaptation strategy.
 
 
-\noindent {\bf Interactive Machine Learning}: 
-Statistical inference and decision theory is an overarching framework
-for learning and decision making under uncertainty, that forms the
-basis of all recent advances in artificial intelligence, machine
-learning and systems of intelligent agents. 
+%\noindent {\bf Interactive Machine Learning}: 
+%Statistical inference and decision theory is an overarching framework
+%for learning and decision making under uncertainty, that forms the
+%basis of all recent advances in artificial intelligence and machine
+%learning. % and systems of intelligent agents. 
 %Recent breakthroughs in
-%modelling, advanced computational techniques and approximation methods and
-%computing power have catapulted methods rooted in probability and game
-%theory to applications in the real world, such as robotics, image
-%recognition, translation, automatic control and advertising.
-\ivica{\ugh{(describing here system collaboration (swarms?) is unexpected. this is still a specif case, and it should either be defined as a scope of the project, or on some way motivated, or removed)}The problem of sequential decision making under uncertainty is of high importance for smart systems. 
-Often smart systems have to collaborate and interact with other systems to solve joint works. It involves three
-different aspects: i) agreeing on a joint action; ii) learning from experience
-while trying to solve the task; and iii) actually formulating detailed plans, communicating information and
-coordinating.} The problem of making sequential decisions under uncertainty is of
+%modelling, advanced computational techniques, approximation methods, and
+%computing power have produced methods that have been %rooted in probability and game
+%%theory to applications 
+%successfully used in the real world, such as robotics, image
+%recognition, translation, automatic control, and advertising.
+%%\ivica{\ugh{(describing here system collaboration (swarms?) is unexpected. this is still a specif case, and it should either be defined as a scope of the project, or on some way motivated, or removed)}The problem of sequential decision making under uncertainty is of high importance for smart systems. 
+%%Often smart systems have to collaborate and interact with other systems to solve joint works. It involves three
+%%different aspects: i) agreeing on a joint action; ii) learning from experience
+%%while trying to solve the task; and iii) actually formulating detailed plans, communicating information and
+%%coordinating.} 
+The problem of making sequential decisions under uncertainty is of
 particular interest in the field of reinforcement
 learning~\cite{suba,BertsekasTsitsiklis:NDP}. In recent year, advances
 in that field with models based on deep neural
@@ -300,18 +303,20 @@ breakthroughs in applicability. % Sub-areas of the field, such as Bayesian optim
 %have also found extensive application in both classical optimisation
 %problems and in other areas such as experiment design for drug
 %development~\cite{williams2015cheaper}. 
-
-\noindent {\em \underline{Contribution beyond the state of the art}}:  Large scale advances in these fields have been focused mainly
-on the single agent framework. Solutions for multi-agent problems have
-remained stubbornly small-scale, as solution complexity generally
-increases exponentially with the number of agents. However, under
-certain assumptions it can be shown that co-operative problems can be
-solved efficiently~\cite{brammert:duct:jair:2014}. 
-%, even under constraints, in a static setting~\cite{brammert:duct:jair:2014}.
-\ivica{\ugh{(so far too abstract - some details should be added)} In this project we aim at proposing innovative interactive machine learning~\cite{interactiveMachineLearning} approaches able to %provide   
+%
+%\noindent {\em \underline{Contribution beyond the state of the art}}:  
+%%Large scale advances in these fields have been focused mainly
+%%on the single agent framework. Solutions for multi-agent problems have
+%%remained stubbornly small-scale, as solution complexity generally
+%%increases exponentially with the number of agents. However, under
+%%certain assumptions it can be shown that co-operative problems can be
+%%solved efficiently~\cite{brammert:duct:jair:2014}. 
+%%, even under constraints, in a static setting~\cite{brammert:duct:jair:2014}.
+%\ivica{\ugh{(so far too abstract - some details should be added)} 
+In this project we aim at proposing innovative interactive machine learning~\cite{interactiveMachineLearning} approaches able to %provide   
 %users with continuous feedback about the effects of the policies they specified
 %and at the same time to 
-continuously learn about the actual value a new development or change delivers}. %By exploiting also the knowledge acquired via interactions of %with 
+continuously learn about the actual value a new development or change delivers.  %}. %By exploiting also the knowledge acquired via interactions of %with 
 %similar users
 %the proposed approaches  will be able to continuously refine, retune and improve the privacy policy specifications. 
 %It is important to note that interaction cycles in interactive machine
@@ -475,9 +480,9 @@ continuous setting; learning will trigger and drive the specific
 adaptation and/or evolution that will bring actual value to the
 system.
 
-\noindent {\bf Concrete outcomes}:
- \ivica{\ugh{here it is unclear who are the users (end-users, developers) phase (development-, run-time), and which values will be taken into account}}\\
-\noindent {\bf O1.1} - Machine learning techniques that, working in continuous interactions with users, will enable measuring the value that an evolution or adaptation deliver;\\ 
+\noindent {\bf Concrete outcomes}:\\
+ %\ivica{\ugh{here it is unclear who are the users (end-users, developers) phase (development-, run-time), and which values will be taken into account}}\\
+\noindent {\bf O1.1} - Machine learning techniques that will enable measuring the value that an evolution or adaptation deliver. In the case of evolution, the users interacting with the machine learning techniques will be developers that will be in charge of developing new features (even after product delivery). In the case of adaptation, machine learning techniques will provide the data that are needed by the system to perform the (run-time) self-adaptation. \\ 
 \noindent {\bf O1.2} - Metrics to identify and prioritize new developments and/or changes that need to be performed in order to increase the customer value.
 %Identification and prioritization of new developments or changes that need to be made on the system according to the measure of value. 
 
@@ -496,7 +501,8 @@ of the results of a previous verification step and accommodate within the verifi
 The theoretical foundations %framework 
 will enable the development of techniques to measure and visualize the impact of changes in 
 %support developers by providing means to check the impact of changes in 
- requirements,  architecture descriptions, and design of the system. This will support developers in a seamless and tool-supported informed process of revision and evolution\ivica{\ugh{is a tool development also planned?}}.
+ requirements,  architecture descriptions, and design of the system. This will support developers in a seamless %and tool-supported 
+ informed process of revision and evolution. We will implement proof-of-concept tools to experiment in practice the performed research. %\ivica{\ugh{is a tool development also planned?}}.
 The seamless integration of automated verification techniques will promote a verification-driven development process in which the verification techniques regulate and define the boundaries of evolution. 
 
 The theoretical foundations will investigate %evolution framework will be based on 
@@ -620,7 +626,11 @@ we aim at performing
 partial proofs %, % before deployment, 
 based on the partial information that is available off-line, and to exploit the result of the off-line verification after deployment. 
 %Similarly to WP2 we aim at exploiting assume guarantee as the instrument to annotate the partial information and the results of the verification performed offline.  
-Indeed, not all system properties might be decomposed to enable compositional and incremental verification. However, in this WP we will focus on system properties that can be decomposed \ivica{\ugh{such as...}}. 
+Indeed, not all system properties might be decomposed to enable compositional and incremental verification. However, in this WP we will focus on system properties that can be decomposed, as for example done in~\cite{Letier2002}, where  the authors propose an approach to build incrementally and correct-by-construction operational software specifications from higher-level goal formulations. In this project we will start from a catalogue of property specification patterns, which collects recurring solutions to deal with the temporal intricacies that
+would make the construction of reactive systems very hard
+otherwise~\cite{TSE2015}.
+
+ 
 %We will also develop algorithms to automatically compute conditions to be exploited at run-time to understand precisely the effect of an adaptation to the affected part, as well as to the other parts of the system. 
 %These algorithms will be specialized to the selected abstraction level and to the composition operator. 
 %We will consider existing works, like the approach presented in~\cite{Cobleigh2003}. 
@@ -636,13 +646,13 @@ Indeed, not all system properties might be decomposed to enable compositional an
 \vspace{.2cm}
 \noindent {\bf WP4: Combining evolution and adaptation.} 
 
-\noindent The overall goal of this WP is to combine the feedback loop of continuous evolution with the autonomic control loops of self-adaptation.
+\noindent The overall goal of this WP is to combine the feedback loop of continuous evolution with the autonomic control loops of self-adaptation. 
 The feedback loop, defined  between the R\&D team and systems in the field, has the ambition to determine whether the
 deployed functionality is providing the intended value to the
 customers or to the company itself, as well as to determine whether the quality of the deployed functionality is acceptable according to well-defined metrics. 
-Autonomic control loops are typically composed of the monitoring, analysis, planning, and execution phases (e.g. the MAPE-loop and its extensions~\cite{MARTAssurance}) and are used to engineer and implement the (self-)adaptability of the system. 
+Autonomic control loops are typically composed of the monitoring, analysis, planning, and execution phases (e.g. the MAPE-loop and its extensions~\cite{MARTAssurance}) and are used to engineer and implement the (self-)adaptability of the system. This WP will consider also input coming from WP1 in order to ensure that the two loops (evolution and adaptation) will bring actual value. 
 
-This WP will investigate strategies to identify the best solution to combine the two different loops. The WP will try to give an answer to the following questions:
+More specifically, this WP will investigate strategies to identify the best solution to combine the two different loops. The WP will try to give an answer to the following questions:
 (i) Are the loops disconnected, loosely connected or intermixed? 
 (ii) Is each loop feeding the other?
 (iii) Might a cycle in a loop trigger a cycle in the other loop? 
